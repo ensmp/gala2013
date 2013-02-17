@@ -1,0 +1,53 @@
+body{
+	overflow:hidden;
+	background-color:#474747;
+}
+
+#mec{
+	float:right;
+	margin-right:50px;
+	position:relative;
+}
+
+#meuf{
+	float: left;
+	position:relative;
+}
+
+
+section::after{
+	content:"";
+	display:table;
+	clear:both;
+}
+
+h1{
+	text-align:center;
+}
+
+
+.overlay{
+	position:absolute;
+	z-index:-1; /*Les overlays sont dans le background par défaut */
+	opacity:0.0;
+	background-color:yellow;
+}
+
+/* Images JS controlled */
+
+.js_controlled{
+	display:block;
+	position:absolute;
+}
+
+imec0{
+	display:block;
+	position:absolute;
+	z-index:1;
+}
+
+imeuf0{
+	display:block;
+	position:absolute;
+	z-index:1;
+}
