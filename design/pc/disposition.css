@@ -1,5 +1,4 @@
 body{
-	overflow:hidden;
 	background-color:#474747;
 }
 
@@ -14,11 +13,8 @@ body{
 	position:relative;
 }
 
-
-section::after{
-	content:"";
-	display:table;
-	clear:both;
+section{
+	text-align:center;
 }
 
 h1{
@@ -51,3 +47,167 @@ imeuf0{
 	position:absolute;
 	z-index:1;
 }
+
+#lien_ipod, #lien_portable, #croix_contenu{
+	cursor:pointer;
+}
+
+/* Les sections de contenu */
+#content{
+	background:#050505;
+	opacity:0.8;
+	color:white;
+	position:fixed;
+	overflow:auto;
+	top:40px;
+	width:500px;
+	left:300px;
+	height:300px;
+	border-radius:10px;
+}
+
+#croix_contenu{
+	width:42px;
+	height:42px;
+	background-image:url('./images/croix_contenu.png');
+	float:right;
+}
+
+#croix_contenu:hover{
+	background-image:url('./images/croix_contenu_hovered.png');
+}
+
+/* Tout ce qui concerne le lecteur */
+
+#fond_splayer{
+	position:fixed;
+	top:-600px;
+	width:236px;
+	height:560px;
+	background-image:url('./player/bati_player.png');
+}
+
+#ecran_splayer{
+	position:absolute;
+	left:27px;
+	top:45px;
+	width:183px;
+	height:229px;
+	background-color:#94989f;
+	background-image:url('./player/fond_ecran.png');
+	background-position: 13px 25px;
+	background-repeat:no-repeat;
+}
+
+#splayer_playing_artist, #splayer_playing_title, #splayer_playing_album{
+	color:#ffffff;
+	font-family:"DejaVu Sans Mono";
+	font-weight:bold;
+}
+
+#splayer_playing_artist{
+	margin-top:115px;
+	font-size:1.4em;
+}
+
+#splayer_playing_title{
+	font-size:1.25em;
+}
+
+#splayer_playing_album{
+	font-size:1.1em;
+}
+
+#splayer_bottom_bar{
+	position:absolute;
+	bottom:0px;
+	height:30px;
+	width:100%;
+	background-color:#222428;
+}
+
+#splayer_time_elapsed, #splayer_time_remaining{
+	color:#ffffff;
+	font-family:"DejaVu Sans Mono";
+	font-weight:bold;
+	font-size:0.6em;
+	text-align:center;
+}
+
+#splayer_time_elapsed{
+	position:absolute;
+	left:0px;
+	bottom:0px;
+	width:34px;
+	height:21px;
+}
+
+#splayer_time_remaining{
+	position:absolute;
+	right:0px;
+	bottom:0px;
+	width:34px;
+	height:21px;
+}
+
+#splayer_progressbar{
+	position:absolute;
+	background-image: url('./player/pb_fond.png');
+	width:115px;
+	height:9px;
+	left:34px;
+	bottom:11px;
+}
+
+#splayer_backbar{
+	background-image: url('./player/pb_fill.png');
+	background-repeat: repeat-x;
+	width:0%;
+	height:9px;
+}
+
+#prev_splayer{
+	position:absolute;
+	left:39px;
+	top:404px;
+	width:30px;
+	height:26px;
+	background-image: url('./player/b_prev.png');
+	cursor:pointer;
+}
+
+#prev_splayer:hover{
+	background-image: url('./player/b_prev_hovered.png');
+}
+
+#playpause_splayer{
+	position:absolute;
+	left:101px;
+	top:472px;
+	width:34px;
+	height:23px;
+	background-image: url('./player/b_playpause.png');
+	cursor:pointer;
+}
+
+#playpause_splayer:hover{
+	background-image: url('./player/b_playpause_hovered.png');
+}
+
+#next_splayer{
+	position:absolute;
+	left:167px;
+	top:406px;
+	width:31px;
+	height:22px;
+	background-image: url('./player/b_next.png');
+	cursor:pointer;
+}
+
+#next_splayer:hover{
+	background-image: url('./player/b_next_hovered.png');
+}
+
+
+
+
