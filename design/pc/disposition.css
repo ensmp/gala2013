@@ -1,16 +1,22 @@
 body{
-	background-color:#474747;
+	background:url('./images/background.jpg') fixed;
+	background-size: 800px 600px;
+	background-repeat:no-repeat;
 }
 
 #mec{
 	float:right;
 	margin-right:50px;
 	position:relative;
+	z-index:0;
+	top:-300px;
 }
 
 #meuf{
 	float: left;
 	position:relative;
+	z-index:0;
+	top:-300px;
 }
 
 section{
@@ -28,6 +34,26 @@ h1{
 	opacity:0.0;
 	background-color:yellow;
 }
+
+/* Le design de base */
+
+@font-face {
+	font-family:"riesling";
+	src: url("./fontes/riesling.ttf"); 
+}
+
+header h1{
+	font-family:"riesling";
+	font-size:5em;
+	margin-top:25px;
+	color:#fff8aa;
+}
+
+header{
+	text-align:center;
+}
+
+/*  */
 
 /* Images JS controlled */
 
@@ -48,29 +74,32 @@ imeuf0{
 	z-index:1;
 }
 
-#lien_ipod, #lien_portable, #croix_contenu{
+#lien_ipod, #lien_portable, #croix_contenu, #lien_preventes{
 	cursor:pointer;
 }
 
 /* Les sections de contenu */
 #content{
-	background:#050505;
-	opacity:0.8;
+	background-color:#050505;
+	background-color:rgba(5,5,5,0.8);
 	color:white;
-	position:fixed;
-	overflow:auto;
-	top:40px;
-	width:500px;
-	left:300px;
-	height:300px;
+	position:absolute;
+	top:100px;
+	/*width:500px; ==> jQuery COntrolled */
+	height:auto;
 	border-radius:10px;
+	box-shadow:6px 6px 6px rgba(18,35,140,0.6);
+	padding:10px;
+	z-index:1;
 }
 
 #croix_contenu{
 	width:42px;
 	height:42px;
 	background-image:url('./images/croix_contenu.png');
-	float:right;
+	position:absolute;
+	right:5px;
+	top:5px;
 }
 
 #croix_contenu:hover{
@@ -81,10 +110,13 @@ imeuf0{
 
 #fond_splayer{
 	position:fixed;
-	top:-600px;
+	bottom:0px;
 	width:236px;
 	height:560px;
 	background-image:url('./player/bati_player.png');
+	z-index:2;
+	opacity:0;
+	display:none;
 }
 
 #ecran_splayer{

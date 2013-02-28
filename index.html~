@@ -26,9 +26,6 @@
  			<!-- L'image du mec dont la source va changer lors des animations -->
     	<img id="imeuf0" alt="Meuf" src="./animations/meuf/1.png"/>
     	
-    	<!-- La "devanture" du sac" -->
-    	<img class="js_controlled" id="devant_sac" alt="devant_sac" src="./animations/meuf/devant_sac.png" />
-    	
  		</nav>
     
  		

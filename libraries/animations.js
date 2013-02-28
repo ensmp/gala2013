@@ -13,7 +13,7 @@ $(function(){
   $('<img id="imec'+i+'" alt="'+i+'" src="./animations/mec/'+i+'.png"/>').hide().appendTo($('#mec'));
   }
   
-  for(i=1; i<=17; i++){
+  for(i=1; i<=23; i++){
   $('<img id="imeuf'+i+'" alt="'+i+'" src="./animations/meuf/'+i+'.png"/>').hide().appendTo($('#meuf'));
   }
     
@@ -25,7 +25,7 @@ $(function(){
   }
   
   tImagesMeuf = new Array();
-  for(i=0; i<=17; i++){
+  for(i=0; i<=23; i++){
    tImagesMeuf[i] = $('#imeuf'+i);
   }
   
@@ -92,9 +92,10 @@ $(function(){
  	$('#poche_pantalon').css({'left':0.4056*wImageMec, 'top':0.542*hImageMec, 'z-index':3, 'display':'block'});
  	
  	//Lien du téléphone portable et du iPod
- 	$('<a href="#" id="lien_portable"></a>').appendTo($('#overlay_mec_out_portable')).css({'display':'block', 'position':'absolute','width':0.0699*wImageMec,'height':0.065*hImageMec,'top':0.0454*wImageMec, 'left':0.035*hImageMec}).click(function(){showContent('bite');});
+ 	$('<div id="lien_portable"></div>').appendTo($('#overlay_mec_out_portable')).css({'display':'block', 'position':'absolute','width':0.0699*wImageMec,'height':0.065*hImageMec,'top':0.0454*wImageMec, 'left':0.035*hImageMec}).click(function(){showContent('portable.php');});
  	
- 	$('<a href="#" id="lien_ipod"></a>').appendTo($('#overlay_mec_out_iPod')).css({'display':'block', 'position':'absolute','width':0.0525*wImageMec,'height':0.052*hImageMec,'left':0.027*wImageMec, 'top':0.00*hImageMec}).click(function(){showContent('bite iPod');});
+ 	$('<div id="lien_ipod"></div>').appendTo($('#overlay_mec_out_iPod')).css({'display':'block', 'position':'absolute','width':0.0525*wImageMec,'height':0.052*hImageMec,'left':0.027*wImageMec, 'top':0.00*hImageMec}).click(function(){if(isIpodShown()){hideIpod();}else{showIpod();} return false;});
+ 	
  	
  	//Et c'est parti
  	//Set de l'état courant
@@ -115,20 +116,32 @@ $(function(){
 		new OverlayMeuf("out_zone_cocotte",0,0,1,1,false,"sage", function(){$(this).dequeue();}, "meuf"),
 		
 		new OverlayMeuf("in_sac",0.0494,0.4133,0.2442,0.1267,true,"sac_devant", function(){$(this).dequeue();}, "overlay_meuf_out_zone_cocotte")
-		
-	), new Array());
 	
+	), new Array());
 	
 	sacDevant = new Etat("sac_devant", 17, new Array(
 		new OverlayMeuf("out_sac_devant",0.0104,0.1967,0.3792,0.4033,false,"cocotte_sortie", function(){$(this).dequeue();}, "meuf"),
 		
-		new OverlayMeuf("in_ouverture_sac",0.05,0.07,0.3091,0.135,true,"sac_devant", function(){$(this).dequeue();}, "overlay_meuf_out_sac_devant")
+		new OverlayMeuf("in_ouverture_sac",0.05,0.07,0.3091,0.135,true,"sac_ouvert", function(){$(this).dequeue();}, "overlay_meuf_out_sac_devant")
 	), new Array());
 	
+	sacOuvert = new Etat("sac_ouvert", 23, new Array(
+		new OverlayMeuf("out_sac_sorti",0.08,0.18,0.3,0.22,false,"sac_devant", function(){$(this).dequeue();}, "meuf")
+	), new Array("devant_sac"));
+	
+
 	//Enregistrement des états dans le manager
 	manMeuf.add(sage);
 	manMeuf.add(cocotteSortie);
 	manMeuf.add(sacDevant);
+	manMeuf.add(sacOuvert);
+	
+	//Positionnement des divers éléments interactifs
+	//$('#ipod_mec').css({'left':0.4161*wImageMec, 'top':0.5533*hImageMec, 'z-index':2, 'display':'block'});
+ 	$('#devant_sac').css({'left':0.0987*wImageMeuf, 'top':0.27*hImageMeuf, 'z-index':3, 'display':'none'});
+	
+	//Lien de la cocotte, de la caméra et du portefeuille
+	$('<div  id="lien_preventes"></div>').appendTo($('#overlay_meuf_out_zone_cocotte')).css({'display':'block', 'position':'absolute','width':0.13*wImageMeuf,'height':0.065*hImageMeuf,'top':0.39*wImageMeuf, 'left':0.55*hImageMeuf}).click(function(){showContent('preventes.php');});
 	
 	//Let's go
 	manMeuf.jumpTo("sage");
@@ -194,6 +207,14 @@ $(function(){
   			
   		for(var i=0; i<this.interactions.length; i++)
   			$('#'+this.interactions[i]).show();
+  	}
+  	
+  	this.getOverlay = function(nom){
+  		for(var i=0; i<this.overlays.length; i++){
+  			if(this.overlays[i].nom == nom)
+  				return this.overlays[i];
+  		}
+  		return undefined;
   	}
   	
   }
