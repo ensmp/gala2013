@@ -5,18 +5,17 @@ body{
 }
 
 #mec{
-	float:right;
-	margin-right:50px;
-	position:relative;
+	position:fixed;
+	right:50px;
+	top:100px;
 	z-index:0;
-	top:-300px;
 }
 
 #meuf{
-	float: left;
-	position:relative;
+	position:fixed;
+	left:0px;
+	top:100px;
 	z-index:0;
-	top:-300px;
 }
 
 section{
@@ -31,7 +30,7 @@ h1{
 .overlay{
 	position:absolute;
 	z-index:-1; /*Les overlays sont dans le background par défaut */
-	opacity:0.1;
+	opacity:0.0;
 	background-color:yellow;
 }
 
@@ -74,28 +73,31 @@ imeuf0{
 	z-index:1;
 }
 
-#lien_ipod, #lien_portable, #croix_contenu, #lien_preventes{
+#lien_ipod, #lien_portable, #croix_contenu, #lien_preventes, #lien_preventes_sac_devant{
 	cursor:pointer;
 }
 
 /* Les sections de contenu */
 #content{
+	text-align:justify;
 	background-color:#050505;
-	background-color:rgba(5,5,5,0.8);
+	background-color:rgba(5,5,5,0.9);
+	background: rgba(5,5,5,0.9) url('./images/horloge_fond.png') bottom right no-repeat;
 	color:white;
 	position:absolute;
-	top:100px;
+	top:130px;
 	/*width:500px; ==> jQuery COntrolled */
 	height:auto;
 	border-radius:10px;
-	box-shadow:6px 6px 6px rgba(18,35,140,0.6);
-	padding:10px;
+	/* box-shadow:6px 6px 6px rgba(18,35,140,0.6); */
+	padding:20px;
+	padding-bottom:15px;
 	z-index:1;
 }
 
 #croix_contenu{
-	width:42px;
-	height:42px;
+	width:25px;
+	height:25px;
 	background-image:url('./images/croix_contenu.png');
 	position:absolute;
 	right:5px;
