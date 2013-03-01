@@ -51,7 +51,7 @@ function showContent(page){
 				
 				$(this).dequeue();
 			
-			}).animate({'top': 100, 'opacity':1}, 1000, 'swing');
+			}).animate({'top': 130, 'opacity':1}, 1000, 'swing');
 					}); //Fin du callback de load
 				
 				//TODO : Affichage du sablier
