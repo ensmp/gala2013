@@ -50,7 +50,7 @@ $(function(){
   costardFerme = 
  	new Etat("costard_fermé", 1, new Array(
  	
- 		new OverlayMec("main",0.2483,0.53,0.1154,0.07,true,"costard_ouvert", function(){$(this).dequeue();}, "mec"),
+ 		new OverlayMec("main",0.2483,0.23,0.3,0.3,true,"costard_ouvert", function(){$(this).dequeue();}, "mec"),
  			
  		new OverlayMec("iPoche", 0.4056, 0.5417, 0.0699, 0.07,true,"iPod_sorti", function(){$('#ipod_mec').animate({'top':'-='+0.0533*hImageMec}, 'fast', 'swing');$(this).dequeue();}, "mec")
  		
@@ -58,7 +58,7 @@ $(function(){
  		
  	costardOuvert =
    	new Etat("costard_ouvert", 6, new Array(
-    	new OverlayMec("out_veste", 0.034, 0.192, 0.460, 0.391, false, "costard_fermé", function(){$(this).dequeue();},"mec"),
+    	new OverlayMec("out_veste", 0.034, 0.192, 0.560, 0.391, false, "costard_fermé", function(){$(this).dequeue();},"mec"),
     	
     	new OverlayMec("in_portable", 0.18, 0.15, 0.15, 0.10, true, "portable_sorti", function(){
     		$('#portable_mec').animate({'top':'-='+0.0367*hImageMec}, 'fast', 'swing');
@@ -120,14 +120,14 @@ $(function(){
 	), new Array());
 	
 	sacDevant = new Etat("sac_devant", 17, new Array(
-		new OverlayMeuf("out_sac_devant",0.0104,0.1967,0.3792,0.4033,false,"cocotte_sortie", function(){$(this).dequeue();}, "meuf"),
+		new OverlayMeuf("out_sac_devant",0.0004,0.1467,0.5,0.4533,false,"cocotte_sortie", function(){$(this).dequeue();}, "meuf"),
 		
 		new OverlayMeuf("in_ouverture_sac",0.05,0.07,0.3091,0.135,true,"sac_ouvert", function(){$(this).dequeue();}, "overlay_meuf_out_sac_devant")
-	), new Array());
+	), new Array('lien_preventes_sac_devant'));
 	
 	sacOuvert = new Etat("sac_ouvert", 23, new Array(
 		new OverlayMeuf("out_sac_sorti",0.08,0.18,0.3,0.22,false,"sac_devant", function(){$(this).dequeue();}, "meuf")
-	), new Array("devant_sac"));
+	), new Array("devant_sac", 'lien_preventes_sac_devant'));
 	
 
 	//Enregistrement des états dans le manager
@@ -142,6 +142,8 @@ $(function(){
 	
 	//Lien de la cocotte, de la caméra et du portefeuille
 	$('<div  id="lien_preventes"></div>').appendTo($('#overlay_meuf_out_zone_cocotte')).css({'display':'block', 'position':'absolute','width':0.13*wImageMeuf,'height':0.065*hImageMeuf,'top':0.39*wImageMeuf, 'left':0.55*hImageMeuf}).click(function(){showContent('preventes.php');});
+	
+	$('#lien_preventes_sac_devant').css({'display':'none', 'position':'absolute','left':0.8078*wImageMeuf,'top':0.2583*hImageMeuf,'width':0.1403*wImageMeuf, 'height':0.0717*hImageMeuf}).click(function(){showContent('preventes.php');});
 	
 	//Let's go
 	manMeuf.jumpTo("sage");

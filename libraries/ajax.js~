@@ -43,7 +43,7 @@ function showContent(page){
 					}
 				}).animate({'height':calculatedHeight}, 'slow', 'linear').queue(function(){$(this).css('overflow','visible');$(this).dequeue();}); */
 	
-				$('#content').css({'height':calculatedHeight, 'width':contenWidth(), 'display':'block', 'overflow':'visible', 'opacity':0, 'top':$(window).height() - 100});
+				$('#content').css({'height':calculatedHeight, 'width':contenWidth(), 'display':'block', 'overflow':'visible', 'opacity':0, 'top':$(window).height() - 130});
 				dynaCSS();
 				
 				//TODO : Désaffichage du sablier
@@ -127,7 +127,7 @@ function contenWidth(){
 function dynaCSS(){
 	
 	//Le fond
-	$('body').css({'background-size':$('body').width() + 'px ' + $('body').height() +'px'});
+	$('body').css({'background-size':$(window).width() + 'px ' + $(window).height() +'px'});
 	
 	//Le lecteur
 	$('#fond_splayer').css({'left':($('body').width()-236)/2});
