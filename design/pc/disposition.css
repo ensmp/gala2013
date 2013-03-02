@@ -3,6 +3,7 @@ body{
 	background-size: 800px 600px;
 	background-repeat:no-repeat;
 	background-color:#0b080f;
+	overflow:scroll;
 }
 
 #mec{
