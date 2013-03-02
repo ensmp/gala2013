@@ -2,6 +2,7 @@ body{
 	background:url('./images/background.jpg') fixed;
 	background-size: 800px 600px;
 	background-repeat:no-repeat;
+	overflow:scroll;
 }
 
 #mec{
@@ -125,7 +126,7 @@ imeuf0{
 	left:27px;
 	top:44px;
 	width:183px;
-	height:229px;
+	height:230px;
 	background-color:#94989f;
 	background-image:url('./player/fond_ecran.png');
 	background-position: 13px 25px;
