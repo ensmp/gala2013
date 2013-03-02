@@ -28,7 +28,6 @@ h1{
 	text-align:center;
 }
 
-
 .overlay{
 	position:absolute;
 	z-index:-1; /*Les overlays sont dans le background par défaut */
