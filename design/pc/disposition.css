@@ -30,7 +30,7 @@ h1{
 .overlay{
 	position:absolute;
 	z-index:-1; /*Les overlays sont dans le background par défaut */
-	opacity:0.0;
+	opacity:0.2;
 	background-color:yellow;
 }
 
@@ -73,7 +73,7 @@ imeuf0{
 	z-index:1;
 }
 
-#lien_ipod, #lien_portable, #croix_contenu, #lien_preventes, #lien_preventes_sac_devant{
+#lien_ipod, #lien_portable, #croix_contenu, #lien_preventes, #lien_preventes_sac_devant, #lien_camera{
 	cursor:pointer;
 }
 
@@ -81,7 +81,6 @@ imeuf0{
 #content{
 	text-align:justify;
 	background-color:#050505;
-	background-color:rgba(5,5,5,0.9);
 	background: rgba(5,5,5,0.9) url('./images/horloge_fond.png') bottom right no-repeat;
 	color:white;
 	position:absolute;

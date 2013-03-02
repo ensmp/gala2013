@@ -73,7 +73,7 @@ imeuf0{
 	z-index:1;
 }
 
-#lien_ipod, #lien_portable, #croix_contenu, #lien_preventes, #lien_preventes_sac_devant{
+#lien_ipod, #lien_portable, #croix_contenu, #lien_preventes, #lien_preventes_sac_devant, #lien_camera{
 	cursor:pointer;
 }
 
@@ -81,7 +81,6 @@ imeuf0{
 #content{
 	text-align:justify;
 	background-color:#050505;
-	background-color:rgba(5,5,5,0.9);
 	background: rgba(5,5,5,0.9) url('./images/horloge_fond.png') bottom right no-repeat;
 	color:white;
 	position:absolute;
@@ -91,7 +90,7 @@ imeuf0{
 	border-radius:10px;
 	/* box-shadow:6px 6px 6px rgba(18,35,140,0.6); */
 	padding:20px;
-	padding-bottom:15px;
+	padding-bottom:10px;
 	z-index:1;
 }
 

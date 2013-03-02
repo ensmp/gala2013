@@ -18,13 +18,11 @@
  		<header>
  			<h1>MineNight in Paris</h1>
  			<!--<h2>Le gala des Mines de Paris</h2>-->
- 			
- 			<img alt="Logo du Gala" src="./design/pc/images/fat_logo.png"/>
  		</header>
-		
 		<!-- Les spots lumineux -->
 		<img src="./design/pc/images/light-left.png" style="position:fixed;top:0;left:0">
 		<img src="./design/pc/images/light-right.png" style="position:fixed;top:0;right:0">
+
  		
  		<nav id="meuf">
  			<!-- L'image du mec dont la source va changer lors des animations -->
@@ -32,7 +30,9 @@
     	
     	<!-- La "devanture" du sac" -->
     	<img class="js_controlled" id="devant_sac" alt="devant_sac" src="./animations/meuf/devant_sac.png" />
-    	
+    	<!-- Le téléphone portable -->
+    	<img class="js_controlled" id="camera_meuf" alt="camera_meuf" src="./animations/meuf/portable.png" />
+    	    	
     	<!-- Le lien de la cocotte lorsque le sac est devant/ouvert -->
     	<div  id="lien_preventes_sac_devant"></div>
     	

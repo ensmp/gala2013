@@ -120,30 +120,40 @@ $(function(){
 	), new Array());
 	
 	sacDevant = new Etat("sac_devant", 17, new Array(
-		new OverlayMeuf("out_sac_devant",0.0004,0.1467,0.5,0.4533,false,"cocotte_sortie", function(){$(this).dequeue();}, "meuf"),
+		new OverlayMeuf("out_sac_devant",0.0004,0.05,0.5,0.55,false,"cocotte_sortie", function(){$(this).dequeue();}, "meuf"),
 		
-		new OverlayMeuf("in_ouverture_sac",0.05,0.07,0.3091,0.135,true,"sac_ouvert", function(){$(this).dequeue();}, "overlay_meuf_out_sac_devant")
+		new OverlayMeuf("in_ouverture_sac",0.07,0.15,0.3091,0.135,true,"sac_ouvert", function(){$(this).dequeue();}, "overlay_meuf_out_sac_devant")
 	), new Array('lien_preventes_sac_devant'));
 	
 	sacOuvert = new Etat("sac_ouvert", 23, new Array(
-		new OverlayMeuf("out_sac_sorti",0.08,0.18,0.3,0.22,false,"sac_devant", function(){$(this).dequeue();}, "meuf")
-	), new Array("devant_sac", 'lien_preventes_sac_devant'));
+		new OverlayMeuf("out_sac_sorti",0.08,0.12,0.3,0.28,false,"sac_devant", function(){$(this).dequeue();}, "meuf"),
+		
+		new OverlayMeuf("in_camera",0.03,0.07,0.115,0.13,true,"camera_sortie", function(){$('#camera_meuf').animate({'top':'-='+0.07*hImageMeuf}, 'fast', 'swing'); $(this).dequeue();}, "overlay_meuf_out_sac_sorti")
+		),
+		new Array("devant_sac", 'lien_preventes_sac_devant', "camera_meuf"));
 	
-
+	cameraSortie = new Etat("camera_sortie", 23, new Array(
+		new OverlayMeuf("out_camera", 0.1039, 0.17, 0.1273, 0.18, false, "sac_ouvert", function(){$('#camera_meuf').animate({'top':'+='+0.07*hImageMeuf}, 'fast', 'swing'); $(this).dequeue();}, "meuf")
+	), new Array("devant_sac", 'lien_preventes_sac_devant', "camera_meuf"));
+	
 	//Enregistrement des états dans le manager
 	manMeuf.add(sage);
 	manMeuf.add(cocotteSortie);
 	manMeuf.add(sacDevant);
 	manMeuf.add(sacOuvert);
+	manMeuf.add(cameraSortie);
 	
 	//Positionnement des divers éléments interactifs
-	//$('#ipod_mec').css({'left':0.4161*wImageMec, 'top':0.5533*hImageMec, 'z-index':2, 'display':'block'});
  	$('#devant_sac').css({'left':0.0987*wImageMeuf, 'top':0.27*hImageMeuf, 'z-index':3, 'display':'none'});
+	$('#camera_meuf').css({'left':0.12*wImageMeuf, 'top':0.255*hImageMeuf, 'z-index':2, 'display':'none'});
 	
 	//Lien de la cocotte, de la caméra et du portefeuille
 	$('<div  id="lien_preventes"></div>').appendTo($('#overlay_meuf_out_zone_cocotte')).css({'display':'block', 'position':'absolute','width':0.13*wImageMeuf,'height':0.065*hImageMeuf,'top':0.39*wImageMeuf, 'left':0.55*hImageMeuf}).click(function(){showContent('preventes.php');});
 	
 	$('#lien_preventes_sac_devant').css({'display':'none', 'position':'absolute','left':0.8078*wImageMeuf,'top':0.2583*hImageMeuf,'width':0.1403*wImageMeuf, 'height':0.0717*hImageMeuf}).click(function(){showContent('preventes.php');});
+	
+	//Lien de la caméra et du portefeuille
+ 	$('<div id="lien_camera"></div>').appendTo($('#overlay_meuf_out_camera')).css({'display':'block', 'position':'absolute','width':0.13*wImageMeuf,'height':0.095*hImageMeuf,'top':0.001*wImageMeuf, 'left':0.001*hImageMeuf, 'opacity':0.5, 'background-color':'green'}).click(function(){showContent('portable.php');});
 	
 	//Let's go
 	manMeuf.jumpTo("sage");
