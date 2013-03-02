@@ -30,8 +30,11 @@
     	
     	<!-- La "devanture" du sac" -->
     	<img class="js_controlled" id="devant_sac" alt="devant_sac" src="./animations/meuf/devant_sac.png" />
-    	<!-- Le téléphone portable -->
+    	<!-- La caméra -->
     	<img class="js_controlled" id="camera_meuf" alt="camera_meuf" src="./animations/meuf/camera.png" />
+    	    	
+    	<!-- Le portefeuille -->
+    	<img class="js_controlled" id="portefeuille_meuf" alt="portefeuille_meuf" src="./animations/meuf/portefeuille.png" />
     	    	
     	<!-- Le lien de la cocotte lorsque le sac est devant/ouvert -->
     	<div  id="lien_preventes_sac_devant"></div>
@@ -116,9 +119,7 @@
 	
 			for(var i = 0; i < tPlayers.length; i++){
 				tPlayers[i].addEventListener('timeupdate', function(){pUpdate();},false);
-			}
-			
-			for(var i = 0; i < tPlayers.length; i++){
+				tPlayers[i].addEventListener('progress', function(){pProgress();},false);
 				tPlayers[i].addEventListener('ended', function(){pNext();},false);
 			}
 	
@@ -264,6 +265,21 @@
 				}
 				 
 				return { x: left, y: top };
+			}
+			
+			function pProgress(){
+				var player = document.querySelector('#song_'+currentSong.id);
+				var bufferedZones = player.buffered;
+				
+				//Ajout des buffered zones aux bons endroits de la barre de progression
+					//On dégages toutes les zones grisées présentes
+					$('.splayer_loadbar').remove();
+					
+					//On met les nouvelles
+				for(var i = 0; i < bufferedZones.length; i++){
+					$('<div class="splayer_loadbar"></div>').css({'left':bufferedZones.start(i)/player.duration*$('#splayer_progressbar').width(),'width':(bufferedZones.end(i) - bufferedZones.start(i))/player.duration*$('#splayer_progressbar').width()}).appendTo($('#splayer_progressbar'));
+				}
+				
 			}
 
 	

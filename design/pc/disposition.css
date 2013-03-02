@@ -30,7 +30,7 @@ h1{
 .overlay{
 	position:absolute;
 	z-index:-1; /*Les overlays sont dans le background par défaut */
-	opacity:0.2;
+	opacity:0.0;
 	background-color:yellow;
 }
 
@@ -73,7 +73,7 @@ imeuf0{
 	z-index:1;
 }
 
-#lien_ipod, #lien_portable, #croix_contenu, #lien_preventes, #lien_preventes_sac_devant, #lien_camera{
+#lien_ipod, #lien_portable, #croix_contenu, #lien_preventes, #lien_preventes_sac_devant, #lien_camera, #lien_portefeuille, #lien_cravate{
 	cursor:pointer;
 }
 
@@ -123,9 +123,9 @@ imeuf0{
 #ecran_splayer{
 	position:absolute;
 	left:27px;
-	top:45px;
+	top:44px;
 	width:183px;
-	height:229px;
+	height:230px;
 	background-color:#94989f;
 	background-image:url('./player/fond_ecran.png');
 	background-position: 13px 25px;
@@ -193,9 +193,24 @@ imeuf0{
 }
 
 #splayer_backbar{
+	position:absolute;
+	left:0px;
+	top:0px;
+	z-index:2;
 	background-image: url('./player/pb_fill.png');
 	background-repeat: repeat-x;
 	width:0%;
+	height:9px;
+}
+
+.splayer_loadbar{
+	position:absolute;
+	left:0px;
+	top:0px;
+	z-index:1;
+	
+	background-image: url('./player/pb_load.png');
+	background-repeat: repeat-x;
 	height:9px;
 }
 

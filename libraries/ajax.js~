@@ -43,7 +43,7 @@ function showContent(page){
 					}
 				}).animate({'height':calculatedHeight}, 'slow', 'linear').queue(function(){$(this).css('overflow','visible');$(this).dequeue();}); */
 	
-				$('#content').css({'height':calculatedHeight, 'width':contenWidth(), 'display':'block', 'overflow':'visible', 'opacity':0, 'top':$(window).height() - 130});
+				$('#content').css({'height':calculatedHeight, 'width':contenWidth(), 'display':'block', 'overflow':'visible', 'opacity':0, 'top':$(window).height() - 100});
 				dynaCSS();
 				
 				//TODO : Désaffichage du sablier
@@ -51,7 +51,7 @@ function showContent(page){
 				
 				$(this).dequeue();
 			
-			}).animate({'top': 100, 'opacity':1}, 1000, 'swing');
+			}).animate({'top': 130, 'opacity':1}, 1000, 'swing');
 					}); //Fin du callback de load
 				
 				//TODO : Affichage du sablier
@@ -108,7 +108,7 @@ function isIpodShown(){
 function showIpod(){	
 	//Affichage tranquillou de l'iPod seulement si il n'est pas déjà affiché/en cours d'affichage
 	if(!isIpodShown())
-		$('#fond_splayer').css({'left':($('body').width()-236)/2, 'display':'block', 'bottom':0}).animate({'bottom':$(window).height() - 640}, 1000, 'swing');
+		$('#fond_splayer').css({'left':($('body').width()-236)/2, 'display':'block', 'bottom':0}).animate({'bottom':($(window).height() - 560)/2}, 1000, 'swing');
 		$('#fond_splayer').animate({'opacity':1},{duration:700,easing:'swing',queue:false});
 }
 
@@ -131,7 +131,9 @@ function dynaCSS(){
 	
 	//Le lecteur
 	$('#fond_splayer').css({'left':($('body').width()-236)/2});
-	
+	if(isIpodShown())
+		$('#fond_splayer').css({'bottom':($(window).height() - 560)/2});
+		
 	//Les blocs de contenu	
 	var cv = contenWidth();
 		

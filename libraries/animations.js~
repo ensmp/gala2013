@@ -96,6 +96,8 @@ $(function(){
  	
  	$('<div id="lien_ipod"></div>').appendTo($('#overlay_mec_out_iPod')).css({'display':'block', 'position':'absolute','width':0.0525*wImageMec,'height':0.052*hImageMec,'left':0.027*wImageMec, 'top':0.00*hImageMec}).click(function(){if(isIpodShown()){hideIpod();}else{showIpod();} return false;});
  	
+ 	//Lien de la cravate
+ 	$('<div id="lien_cravate"></div>').appendTo($('#mec')).css({'display':'block', 'position':'absolute','width':0.0525*wImageMec,'height':0.052*hImageMec,'left':0.027*wImageMec, 'top':0.00*hImageMec}).click(function(){showContent('partenaires.php'); return false;});
  	
  	//Et c'est parti
  	//Set de l'état courant
@@ -128,13 +130,19 @@ $(function(){
 	sacOuvert = new Etat("sac_ouvert", 23, new Array(
 		new OverlayMeuf("out_sac_sorti",0.08,0.12,0.3,0.28,false,"sac_devant", function(){$(this).dequeue();}, "meuf"),
 		
-		new OverlayMeuf("in_camera",0.03,0.07,0.115,0.13,true,"camera_sortie", function(){$('#camera_meuf').animate({'top':'-='+0.07*hImageMeuf}, 'fast', 'swing'); $(this).dequeue();}, "overlay_meuf_out_sac_sorti")
+		new OverlayMeuf("in_camera",0.03,0.07,0.115,0.13,true,"camera_sortie", function(){$('#camera_meuf').animate({'top':'-='+0.07*hImageMeuf}, 'fast', 'swing'); $(this).dequeue();}, "overlay_meuf_out_sac_sorti"),
+		
+		new OverlayMeuf("in_portefeuille",0.17,0.07,0.085,0.13,true,"portefeuille_sorti", function(){$('#portefeuille_meuf').animate({'top':'-='+0.07*hImageMeuf}, 'fast', 'swing'); $(this).dequeue();}, "overlay_meuf_out_sac_sorti")
 		),
-		new Array("devant_sac", 'lien_preventes_sac_devant', "camera_meuf"));
+		new Array("devant_sac", 'lien_preventes_sac_devant', "camera_meuf", "portefeuille_meuf"));
 	
 	cameraSortie = new Etat("camera_sortie", 23, new Array(
 		new OverlayMeuf("out_camera", 0.1039, 0.17, 0.1273, 0.18, false, "sac_ouvert", function(){$('#camera_meuf').animate({'top':'+='+0.07*hImageMeuf}, 'fast', 'swing'); $(this).dequeue();}, "meuf")
-	), new Array("devant_sac", 'lien_preventes_sac_devant', "camera_meuf"));
+	), new Array("devant_sac", 'lien_preventes_sac_devant', "camera_meuf", "portefeuille_meuf"));
+	
+	portefeuilleSorti = new Etat("portefeuille_sorti", 23, new Array(
+		new OverlayMeuf("out_portefeuille", 0.2338, 0.17, 0.1169, 0.1567, false, "sac_ouvert", function(){$('#portefeuille_meuf').animate({'top':'+='+0.07*hImageMeuf}, 'fast', 'swing'); $(this).dequeue();}, "meuf")
+	), new Array("devant_sac", 'lien_preventes_sac_devant', "camera_meuf", "portefeuille_meuf"));
 	
 	//Enregistrement des états dans le manager
 	manMeuf.add(sage);
@@ -142,10 +150,12 @@ $(function(){
 	manMeuf.add(sacDevant);
 	manMeuf.add(sacOuvert);
 	manMeuf.add(cameraSortie);
+	manMeuf.add(portefeuilleSorti);
 	
 	//Positionnement des divers éléments interactifs
  	$('#devant_sac').css({'left':0.0987*wImageMeuf, 'top':0.27*hImageMeuf, 'z-index':3, 'display':'none'});
 	$('#camera_meuf').css({'left':0.12*wImageMeuf, 'top':0.255*hImageMeuf, 'z-index':2, 'display':'none'});
+	$('#portefeuille_meuf').css({'left':0.239*wImageMeuf, 'top':0.2667*hImageMeuf, 'z-index':2, 'display':'none'});
 	
 	//Lien de la cocotte, de la caméra et du portefeuille
 	$('<div  id="lien_preventes"></div>').appendTo($('#overlay_meuf_out_zone_cocotte')).css({'display':'block', 'position':'absolute','width':0.13*wImageMeuf,'height':0.065*hImageMeuf,'top':0.39*wImageMeuf, 'left':0.55*hImageMeuf}).click(function(){showContent('preventes.php');});
@@ -153,7 +163,10 @@ $(function(){
 	$('#lien_preventes_sac_devant').css({'display':'none', 'position':'absolute','left':0.8078*wImageMeuf,'top':0.2583*hImageMeuf,'width':0.1403*wImageMeuf, 'height':0.0717*hImageMeuf}).click(function(){showContent('preventes.php');});
 	
 	//Lien de la caméra et du portefeuille
- 	$('<div id="lien_camera"></div>').appendTo($('#overlay_meuf_out_camera')).css({'display':'block', 'position':'absolute','width':0.13*wImageMeuf,'height':0.10*hImageMeuf,'top':0.001*wImageMeuf, 'left':0.001*hImageMeuf, 'opacity':0.5, 'background-color':'green'}).click(function(){showContent('portable.php');});
+ 	$('<div id="lien_camera"></div>').appendTo($('#overlay_meuf_out_camera')).css({'display':'block', 'position':'absolute','width':0.13*wImageMeuf,'height':0.095*hImageMeuf,'top':0.001*wImageMeuf, 'left':0.001*hImageMeuf}).click(function(){showContent('videos.php');});
+ 	
+ 	$('<div id="lien_portefeuille"></div>').appendTo($('#overlay_meuf_out_portefeuille')).css({'display':'block', 'position':'absolute', 'width':0.10*wImageMeuf,'height':0.060*hImageMeuf,'top':0.04*wImageMeuf, 'left':0.006*hImageMeuf, 'opacity':0.5, 'background-color':'green'}).click(function(){showContent('portefeuilleMarron.php');});
+	
 	
 	//Let's go
 	manMeuf.jumpTo("sage");

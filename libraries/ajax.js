@@ -5,7 +5,7 @@ var content_name = '';
 
 //Ajout des listeners qui vont bien au fichier HTML
 $("#croix_contenu").click(function(){hideContent();});
-//$(window).click(function(){hideAll();});
+$(window).click(function(){hideAll();});
 $("#fond_splayer").click(function(){return false;});
 $("#content").click(function(){hideIpod(); return false;});
 
@@ -97,7 +97,7 @@ function hideContent(){
 
 function hideAll(){
 	hideIpod();
-	hideContent();
+	//hideContent();
 }
 
 //Fonction relatives au Player
@@ -108,7 +108,7 @@ function isIpodShown(){
 function showIpod(){	
 	//Affichage tranquillou de l'iPod seulement si il n'est pas déjà affiché/en cours d'affichage
 	if(!isIpodShown())
-		$('#fond_splayer').css({'left':($('body').width()-236)/2, 'display':'block', 'bottom':0}).animate({'bottom':$(window).height() - 640}, 1000, 'swing');
+		$('#fond_splayer').css({'left':($('body').width()-236)/2, 'display':'block', 'bottom':0}).animate({'bottom':($(window).height() - 560)/2}, 1000, 'swing');
 		$('#fond_splayer').animate({'opacity':1},{duration:700,easing:'swing',queue:false});
 }
 
@@ -131,7 +131,9 @@ function dynaCSS(){
 	
 	//Le lecteur
 	$('#fond_splayer').css({'left':($('body').width()-236)/2});
-	
+	if(isIpodShown())
+		$('#fond_splayer').css({'bottom':($(window).height() - 560)/2});
+		
 	//Les blocs de contenu	
 	var cv = contenWidth();
 		
