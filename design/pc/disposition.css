@@ -3,7 +3,7 @@ body{
 	background-size: 800px 600px;
 	background-repeat:no-repeat;
 	background-color:#0b080f;
-	overflow:scroll;
+	overflow-y:scroll;
 }
 
 #mec{
@@ -84,7 +84,7 @@ imeuf0{
 	z-index:1;
 }
 
-#lien_ipod, #lien_portable, #croix_contenu, #lien_preventes, #lien_preventes_sac_devant, #lien_camera, #lien_portefeuille, #lien_cravate{
+#lien_ipod, #lien_portable, #croix_contenu, #lien_preventes, #lien_preventes_sac_devant, #lien_camera, #lien_portefeuille, #lien_cravate, #lien_teiffel, #lien_mouchoir{
 	cursor:pointer;
 }
 

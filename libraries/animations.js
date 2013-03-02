@@ -52,9 +52,11 @@ $(function(){
  	
  		new OverlayMec("main",0.2483,0.23,0.3,0.3,true,"costard_ouvert", function(){$(this).dequeue();}, "mec"),
  			
- 		new OverlayMec("iPoche", 0.4056, 0.5417, 0.0699, 0.07,true,"iPod_sorti", function(){$('#ipod_mec').animate({'top':'-='+0.0533*hImageMec}, 'fast', 'swing');$(this).dequeue();}, "mec")
+ 		new OverlayMec("iPoche", 0.4056, 0.5417, 0.0699, 0.07,true,"iPod_sorti", function(){$('#ipod_mec').animate({'top':'-='+0.0533*hImageMec}, 'fast', 'swing');$(this).dequeue();}, "mec"), 
  		
- 	), new Array("ipod_mec", "poche_pantalon"));
+ 		new OverlayMec("in_mouchoir", 0.7133, 0.2567, 0.049, 0.0316 ,true, "mouchoir_sorti", function(){$('#mouchoir_mec').animate({'top':'-='+0.02*hImageMec}, 'fast', 'swing');$(this).dequeue();}, "mec")
+ 		
+ 	), new Array("ipod_mec", "poche_pantalon", "mouchoir_mec", "poche_mouchoir_mec"));
  		
  	costardOuvert =
    	new Etat("costard_ouvert", 6, new Array(
@@ -79,10 +81,17 @@ $(function(){
   	
   ), new Array("ipod_mec", "poche_pantalon"));
   
+  mouchoirSorti = new Etat("mouchoir_sorti", 1, new Array(
+  
+  	new OverlayMec("out_mouchoir", 0.6958, 0.2283, 0.0874, 0.0667, false, "costard_fermé", function(){$('#mouchoir_mec').animate({'top':'+='+0.02*hImageMec}, 'fast', 'swing');$(this).dequeue();}, "mec")
+  	
+  ), new Array("mouchoir_mec", "poche_mouchoir_mec"));
+  
   manMec.add(costardFerme);
   manMec.add(costardOuvert);
   manMec.add(portableSorti);
  	manMec.add(iPodSorti);
+ 	manMec.add(mouchoirSorti);
  	
  	//Positionnement (x, y, et z-index) des divers éléments interactifs
  	$('#portable_mec').css({'left':0.2517*wImageMec, 'top':0.3583*hImageMec, 'z-index':2, 'display':'none'});
@@ -91,13 +100,22 @@ $(function(){
  	$('#ipod_mec').css({'left':0.4161*wImageMec, 'top':0.5533*hImageMec, 'z-index':2, 'display':'block'});
  	$('#poche_pantalon').css({'left':0.4056*wImageMec, 'top':0.542*hImageMec, 'z-index':3, 'display':'block'});
  	
+ 	$('#mouchoir_mec').css({'left':0.7133*wImageMec, 'top':0.2567*hImageMec, 'z-index':2, 'display':'block'});
+ 	$('#poche_mouchoir_mec').css({'left':0.7063*wImageMec, 'top':0.265*hImageMec, 'z-index':3, 'display':'block'});
+ 	
  	//Lien du téléphone portable et du iPod
- 	$('<div id="lien_portable"></div>').appendTo($('#overlay_mec_out_portable')).css({'display':'block', 'position':'absolute','width':0.0699*wImageMec,'height':0.065*hImageMec,'top':0.0454*wImageMec, 'left':0.035*hImageMec}).click(function(){showContent('portable.php');});
+ 	$('<div id="lien_portable"></div>').appendTo($('#overlay_mec_out_portable')).css({'display':'block', 'position':'absolute','width':0.0699*wImageMec,'height':0.065*hImageMec,'top':0.0454*wImageMec, 'left':0.035*hImageMec}).click(function(){return showContent('portable.php');});
  	
  	$('<div id="lien_ipod"></div>').appendTo($('#overlay_mec_out_iPod')).css({'display':'block', 'position':'absolute','width':0.0525*wImageMec,'height':0.052*hImageMec,'left':0.027*wImageMec, 'top':0.00*hImageMec}).click(function(){if(isIpodShown()){hideIpod();}else{showIpod();} return false;});
  	
  	//Lien de la cravate
- 	$('<div id="lien_cravate"></div>').appendTo($('#mec')).css({'display':'block', 'position':'absolute','width':0.0629*wImageMec,'height':0.2517*hImageMec,'left':0.5769*wImageMec, 'top':0.1933*hImageMec}).click(function(){showContent('partenaires.php'); return false;});
+ 	$('<div id="lien_cravate"></div>').appendTo($('#mec')).css({'display':'block', 'position':'absolute','width':0.0629*wImageMec,'height':0.2517*hImageMec,'left':0.5769*wImageMec, 'top':0.1933*hImageMec}).click(function(){return showContent('partenaires.php'); return false;});
+ 	
+ 	//Lien de la tour Eiffel
+ 	$('<div id="lien_teiffel"></div>').appendTo($('body')).css({'display':'block', 'position':'absolute','width':0.0225*$(window).width(),'height':0.0245*$(window).height(),'left':0.4931*$(window).width(), 'top':0.5978*$(window).height()}).click(function(){return showContent('tyrolienne.php'); return false;});
+ 	
+ 	//Lien du mouchoir
+ 	$('<div id="lien_mouchoir"></div>').appendTo($('#overlay_mec_out_mouchoir')).css({'display':'block', 'position':'absolute','width':0.05*wImageMec,'height':0.04*hImageMec,'left':0.02*wImageMec, 'top':0.008*hImageMec}).click(function(){return showContent('animationsSoiree.php'); return false;});
  	
  	//Et c'est parti
  	//Set de l'état courant
@@ -158,14 +176,14 @@ $(function(){
 	$('#portefeuille_meuf').css({'left':0.239*wImageMeuf, 'top':0.2667*hImageMeuf, 'z-index':2, 'display':'none'});
 	
 	//Lien de la cocotte, de la caméra et du portefeuille
-	$('<div  id="lien_preventes"></div>').appendTo($('#overlay_meuf_out_zone_cocotte')).css({'display':'block', 'position':'absolute','width':0.13*wImageMeuf,'height':0.065*hImageMeuf,'top':0.39*wImageMeuf, 'left':0.55*hImageMeuf}).click(function(){showContent('preventes.php');});
+	$('<div  id="lien_preventes"></div>').appendTo($('#overlay_meuf_out_zone_cocotte')).css({'display':'block', 'position':'absolute','width':0.13*wImageMeuf,'height':0.065*hImageMeuf,'top':0.39*wImageMeuf, 'left':0.55*hImageMeuf}).click(function(){return showContent('preventes.php');});
 	
-	$('#lien_preventes_sac_devant').css({'display':'none', 'position':'absolute','left':0.8078*wImageMeuf,'top':0.2583*hImageMeuf,'width':0.1403*wImageMeuf, 'height':0.0717*hImageMeuf}).click(function(){showContent('preventes.php');});
+	$('#lien_preventes_sac_devant').css({'display':'none', 'position':'absolute','left':0.8078*wImageMeuf,'top':0.2583*hImageMeuf,'width':0.1403*wImageMeuf, 'height':0.0717*hImageMeuf}).click(function(){return showContent('preventes.php');});
 	
 	//Lien de la caméra et du portefeuille
- 	$('<div id="lien_camera"></div>').appendTo($('#overlay_meuf_out_camera')).css({'display':'block', 'position':'absolute','width':0.13*wImageMeuf,'height':0.095*hImageMeuf,'top':0.001*wImageMeuf, 'left':0.001*hImageMeuf}).click(function(){showContent('videos.php');});
+ 	$('<div id="lien_camera"></div>').appendTo($('#overlay_meuf_out_camera')).css({'display':'block', 'position':'absolute','width':0.13*wImageMeuf,'height':0.095*hImageMeuf,'top':0.001*wImageMeuf, 'left':0.001*hImageMeuf}).click(function(){return showContent('videos.php');});
  	
- 	$('<div id="lien_portefeuille"></div>').appendTo($('#overlay_meuf_out_portefeuille')).css({'display':'block', 'position':'absolute', 'width':0.10*wImageMeuf,'height':0.060*hImageMeuf,'top':0.04*wImageMeuf, 'left':0.006*hImageMeuf, 'opacity':0.5, 'background-color':'green'}).click(function(){showContent('portefeuilleMarron.php');});
+ 	$('<div id="lien_portefeuille"></div>').appendTo($('#overlay_meuf_out_portefeuille')).css({'display':'block', 'position':'absolute', 'width':0.10*wImageMeuf,'height':0.060*hImageMeuf,'top':0.04*wImageMeuf, 'left':0.006*hImageMeuf, 'opacity':0.5, 'background-color':'green'}).click(function(){return showContent('portefeuilleMarron.php');});
 	
 	
 	//Let's go

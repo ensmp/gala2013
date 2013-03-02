@@ -2,7 +2,8 @@ body{
 	background:url('./images/background.jpg') fixed;
 	background-size: 800px 600px;
 	background-repeat:no-repeat;
-	overflow:scroll;
+	background-color:#0b080f;
+	overflow-y:scroll;
 }
 
 #mec{
@@ -31,7 +32,7 @@ h1{
 .overlay{
 	position:absolute;
 	z-index:-1; /*Les overlays sont dans le background par défaut */
-	opacity:0.0;
+	opacity:0.2;
 	background-color:yellow;
 }
 
@@ -51,6 +52,15 @@ header h1{
 
 header{
 	text-align:center;
+}
+
+a {
+    color: #5AA0CC;
+    text-decoration: none;
+}
+
+strong {
+	color: #FA0; /** ET EN BO !*/
 }
 
 /*  */
@@ -74,7 +84,7 @@ imeuf0{
 	z-index:1;
 }
 
-#lien_ipod, #lien_portable, #croix_contenu, #lien_preventes, #lien_preventes_sac_devant, #lien_camera, #lien_portefeuille, #lien_cravate{
+#lien_ipod, #lien_portable, #croix_contenu, #lien_preventes, #lien_preventes_sac_devant, #lien_camera, #lien_portefeuille, #lien_cravate, #lien_teiffel, #lien_mouchoir{
 	cursor:pointer;
 }
 
@@ -85,7 +95,7 @@ imeuf0{
 	background: rgba(5,5,5,0.9) url('./images/horloge_fond.png') bottom right no-repeat;
 	color:white;
 	position:absolute;
-	top:130px;
+	top:160px;
 	/*width:500px; ==> jQuery COntrolled */
 	height:auto;
 	border-radius:10px;
