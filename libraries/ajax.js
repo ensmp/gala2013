@@ -7,7 +7,7 @@ var content_name = '';
 var content_going_out = false;
 
 //Ajout des listeners qui vont bien au fichier HTML
-$("#croix_contenu").click(function(){hideContent();});
+$("#croix_contenu").click(function(){hideContent(); return false;});
 $(window).click(function(e){
 	if( e.which == 1 ){
 		hideAll();
@@ -19,7 +19,9 @@ $("#content").click(function(){hideIpod(); return false;});
 showContent('explications.php');
 
 function showContent(page){
-
+	
+	hideIpod();
+	
 	if(isThatContentShown(page)){
 		hideContent();
 		return;
@@ -127,7 +129,8 @@ function showIpod(){
 }
 
 function hideIpod(){
-	$('#fond_splayer').animate({'bottom':'0px','opacity':0}, 'slow', 'swing').queue(function(){$(this).css('display','none'); $(this).dequeue();});
+	if(isIpodShown())
+		$('#fond_splayer').animate({'bottom':'0px','opacity':0}, 'slow', 'swing').queue(function(){$(this).css('display','none'); $(this).dequeue();});
 };
 
 //Positionnement des éléments via jQuery (voir ça comme du css "dynamique") --> Size independance des éléments positionnés de façon absolue

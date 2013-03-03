@@ -7,7 +7,7 @@ var content_name = '';
 var content_going_out = false;
 
 //Ajout des listeners qui vont bien au fichier HTML
-$("#croix_contenu").click(function(){hideContent();});
+$("#croix_contenu").click(function(){hideContent(); return false;});
 $(window).click(function(e){
 	if( e.which == 1 ){
 		hideAll();
@@ -19,7 +19,10 @@ $("#content").click(function(){hideIpod(); return false;});
 showContent('explications.php');
 
 function showContent(page){
-
+	
+	/*if(isIpodShown())
+		hideIpod();*/
+	
 	if(isThatContentShown(page)){
 		hideContent();
 		return;
@@ -149,7 +152,7 @@ function dynaCSS(){
 		$('#fond_splayer').css({'bottom':($(window).height() - 560)/2});
 	
 	//Le lien de la tour eiffel
-	$('#lien_teiffel').css({'width':0.0425*$(window).width(),'height':0.0645*$(window).height(),'left':0.4831*$(window).width(), 'top':0.5578*$(window).height()});
+	$('#lien_teiffel').css({'width':0.0425*$(window).width(),'height':0.0645*$(window).height(),'left':0.4831*$(window).width(), 'top':0.5778*$(window).height()});
 	
 	//Les blocs de contenu	
 	var cv = contenWidth();
