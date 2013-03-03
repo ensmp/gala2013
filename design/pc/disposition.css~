@@ -28,12 +28,12 @@ h1{
 	text-align:center;
 }
 
-
 .overlay{
 	position:absolute;
 	z-index:-1; /*Les overlays sont dans le background par défaut */
 	opacity:0.2;
 	background-color:yellow;
+	border:1px solid red;
 }
 
 /* Le design de base */
@@ -101,7 +101,7 @@ imeuf0{
 	border-radius:10px;
 	/* box-shadow:6px 6px 6px rgba(18,35,140,0.6); */
 	padding:20px;
-	padding-bottom:10px;
+	padding-bottom:20px;
 	z-index:1;
 }
 

@@ -59,6 +59,12 @@
     	<!-- La poche qui le cache -->
     	<img  class="js_controlled" id="poche_pantalon" alt="poche_pantalon" src="./animations/mec/poche_iphone.png" />
     	
+    	<!-- Le mouchoir -->
+    	<img class="js_controlled" id="mouchoir_mec" alt="mouchoir_mec" src="./animations/mec/mouchoir.png" />
+    	
+    	<!-- La poche qui le cache -->
+    	<img class="js_controlled" id="poche_mouchoir_mec" alt="poche_mouchoir_mec" src="./animations/mec/poche_mouchoir.png" />
+    	
     </nav>
 	
     

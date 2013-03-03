@@ -12,6 +12,9 @@ $(window).click(function(){hideAll();});
 $("#fond_splayer").click(function(){return false;});
 $("#content").click(function(){hideIpod(); return false;});
 
+//Par défaut rien ne s'affiche
+hideContent();
+
 function showContent(page){
 
 	if(isThatContentShown(page)){

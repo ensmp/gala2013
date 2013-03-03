@@ -52,7 +52,7 @@ $(function(){
  	
  		new OverlayMec("main",0.2483,0.23,0.3,0.3,true,"costard_ouvert", function(){$(this).dequeue();}, "mec"),
  			
- 		new OverlayMec("iPoche", 0.4056, 0.5417, 0.0699, 0.07,true,"iPod_sorti", function(){$('#ipod_mec').animate({'top':'-='+0.0533*hImageMec}, 'fast', 'swing');$(this).dequeue();}, "mec"), 
+ 		new OverlayMec("iPoche", 0.7377, 0.5417, 0.0909, 0.07,true,"iPod_sorti", function(){$('#ipod_mec').animate({'top':'-='+0.0533*hImageMec}, 'fast', 'swing');$(this).dequeue();}, "mec"), 
  		
  		new OverlayMec("in_mouchoir", 0.7133, 0.2567, 0.049, 0.0316 ,true, "mouchoir_sorti", function(){$('#mouchoir_mec').animate({'top':'-='+0.02*hImageMec}, 'fast', 'swing');$(this).dequeue();}, "mec")
  		
@@ -71,13 +71,13 @@ $(function(){
     	
   portableSorti = new Etat("portable_sorti", 6, new Array(
   
-  	new OverlayMec("out_portable", 0.18, 0.30, 0.20, 0.14, false, "costard_ouvert", function(){$('#portable_mec').animate({'top':'+='+0.0367*hImageMec}, 'fast', 'swing');$(this).dequeue();},"mec")
+  	new OverlayMec("out_portable", 0.1788, 0.2933, 0.2222, 0.1683, false, "costard_ouvert", function(){$('#portable_mec').animate({'top':'+='+0.0367*hImageMec}, 'fast', 'swing');$(this).dequeue();},"mec")
   	
   ), new Array("portable_mec", "poche_basse_mec"));
   
   iPodSorti = new Etat("iPod_sorti", 1, new Array(
   
-  	new OverlayMec("out_iPod", 0.39, 0.50, 0.09, 0.12, false, "costard_fermé", function(){$('#ipod_mec').animate({'top':'+='+0.0533*hImageMec}, 'fast', 'swing');$(this).dequeue();}, "mec")
+  	new OverlayMec("out_iPod", 0.73, 0.50, 0.13, 0.12, false, "costard_fermé", function(){$('#ipod_mec').animate({'top':'+='+0.0533*hImageMec}, 'fast', 'swing');$(this).dequeue();}, "mec")
   	
   ), new Array("ipod_mec", "poche_pantalon"));
   
@@ -97,8 +97,8 @@ $(function(){
  	$('#portable_mec').css({'left':0.2517*wImageMec, 'top':0.3583*hImageMec, 'z-index':2, 'display':'none'});
  	$('#poche_basse_mec').css({'left':0.2028*wImageMec, 'top':0.376*hImageMec, 'z-index':3, 'display':'none'});
  	
- 	$('#ipod_mec').css({'left':0.4161*wImageMec, 'top':0.5533*hImageMec, 'z-index':2, 'display':'block'});
- 	$('#poche_pantalon').css({'left':0.4056*wImageMec, 'top':0.542*hImageMec, 'z-index':3, 'display':'block'});
+ 	$('#ipod_mec').css({'left':0.7591*wImageMec, 'top':0.5533*hImageMec, 'z-index':2, 'display':'block'});
+ 	$('#poche_pantalon').css({'left':0.7378*wImageMec, 'top':0.542*hImageMec, 'z-index':3, 'display':'block'});
  	
  	$('#mouchoir_mec').css({'left':0.7133*wImageMec, 'top':0.2567*hImageMec, 'z-index':2, 'display':'block'});
  	$('#poche_mouchoir_mec').css({'left':0.7063*wImageMec, 'top':0.265*hImageMec, 'z-index':3, 'display':'block'});
@@ -106,7 +106,7 @@ $(function(){
  	//Lien du téléphone portable et du iPod
  	$('<div id="lien_portable"></div>').appendTo($('#overlay_mec_out_portable')).css({'display':'block', 'position':'absolute','width':0.0699*wImageMec,'height':0.065*hImageMec,'top':0.0454*wImageMec, 'left':0.035*hImageMec}).click(function(){return showContent('portable.php');});
  	
- 	$('<div id="lien_ipod"></div>').appendTo($('#overlay_mec_out_iPod')).css({'display':'block', 'position':'absolute','width':0.0525*wImageMec,'height':0.052*hImageMec,'left':0.027*wImageMec, 'top':0.00*hImageMec}).click(function(){if(isIpodShown()){hideIpod();}else{showIpod();} return false;});
+ 	$('<div id="lien_ipod"></div>').appendTo($('#overlay_mec_out_iPod')).css({'display':'block', 'position':'absolute','width':0.0525*wImageMec,'height':0.052*hImageMec,'left':0.027*wImageMec, 'top':0.00*hImageMec,'background':'green'}).click(function(){if(isIpodShown()){hideIpod();}else{showIpod();} return false;});
  	
  	//Lien de la cravate
  	$('<div id="lien_cravate"></div>').appendTo($('#mec')).css({'display':'block', 'position':'absolute','width':0.0629*wImageMec,'height':0.2517*hImageMec,'left':0.5769*wImageMec, 'top':0.1933*hImageMec}).click(function(){return showContent('partenaires.php'); return false;});
