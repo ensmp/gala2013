@@ -8,7 +8,11 @@ var content_going_out = false;
 
 //Ajout des listeners qui vont bien au fichier HTML
 $("#croix_contenu").click(function(){hideContent();});
-$(window).click(function(e){if( (!$.browser.msie && e.button == 0) || ($.browser.msie && e.button == 1) )hideAll();});
+$(window).click(function(e){
+	if( e.which == 1 ){
+		hideAll();
+	} 
+});
 $("#fond_splayer").click(function(){return false;});
 $("#content").click(function(){hideIpod(); return false;});
 
