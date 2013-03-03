@@ -4,6 +4,7 @@ body{
 	background-repeat:no-repeat;
 	background-color:#0b080f;
 	overflow-y:scroll;
+	overflow-x:hidden;
 }
 
 #mec{
@@ -54,17 +55,6 @@ header{
 	text-align:center;
 }
 
-a {
-    color: #5AA0CC;
-    text-decoration: none;
-}
-
-strong {
-	color: #FA0; /** ET EN BO !*/
-}
-
-/*  */
-
 /* Images JS controlled */
 
 .js_controlled{
@@ -102,8 +92,13 @@ imeuf0{
 	border-radius:10px;
 	/* box-shadow:6px 6px 6px rgba(18,35,140,0.6); */
 	padding:20px;
-	padding-bottom:20px;
 	z-index:1;
+}
+
+#html_content:after{
+	content:"a";
+	display:block;
+	clear:both;
 }
 
 #croix_contenu{
@@ -118,6 +113,16 @@ imeuf0{
 #croix_contenu:hover{
 	background-image:url('./images/croix_contenu_hovered.png');
 }
+
+	/* Mise en page CSS des divers contenus */
+	#contenu a {
+		color: #5AA0CC;
+		text-decoration: none;
+	}
+
+	#contenu strong {
+		color: #FA0; /** ET EN BO !*/
+	}
 
 /* Tout ce qui concerne le lecteur */
 

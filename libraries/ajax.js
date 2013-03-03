@@ -35,12 +35,18 @@ function showContent(page){
 				$('#html_content').load('./contenus/' + page, function(){
 					$("#content").queue(function(){
 			
-					//Remplissage du bloc
-				
-					dynaCSS(); //Set de la width (cachée)
-					var calculatedHeight = $('#content').css({'visibility':'hidden', 'height':'auto', 'overflow':'visible'}).height(); //Calcul automatique de la hauteur par le navigateur
-		
-					$('#content').css({'overflow':'hidden', 'visibility':'visible', 'height':0, 'width':0, 'left':$('body').width()/2}); //On rechache le truc
+					//Remplissage du bloc... done ! 
+					
+					/* OBSOLETE
+					 //Set de la width (cachée)
+					$('#content').css({'visibility':'hidden', 'height':'auto', 'overflow':'scroll'}); 
+					//Calcul automatique de la hauteur par le navigateur
+					dynaCSS();
+					var calculatedHeight = $('#content').height();
+					
+					//$('#content').css({'overflow':'hidden', 'visibility':'visible', 'height':0, 'width':0, 'left':$('body').width()/2}); //On rechache le truc
+					
+					*/
 			
 		
 					/* //Vielle animation
@@ -49,9 +55,9 @@ function showContent(page){
 						$('#content').css({'left': ($('body').width()-$('#content').width())/2});
 					}
 				}).animate({'height':calculatedHeight}, 'slow', 'linear').queue(function(){$(this).css('overflow','visible');$(this).dequeue();}); */
-	
-				$('#content').css({'height':calculatedHeight, 'width':contenWidth(), 'display':'block', 'overflow':'visible', 'opacity':0, 'top':$(window).height() - 100});
+				
 				dynaCSS();
+				$('#content').css({'height':'auto', 'width':contenWidth(), 'display':'block', 'visibility':'visible', 'overflow':'visible', 'opacity':0, 'top':$(window).height() - 100});
 				
 				//TODO : Désaffichage du sablier
 				
