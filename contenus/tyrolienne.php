@@ -1,5 +1,11 @@
 <h1>La tyrolienne</h1>
 
-<p>Vous le savez, vous ne le savez pas, certains parmis vous auront l'ultime privilège de pouvoir traverser la salle... à plusieurs mètre de hauteur et en glissant le long d'une tyrolienne pour aller atterir en beauté en plein sur le dance floor. Comment ? Il vous suffit pour cela de vous inscrire ci-dessous en précisant le nom et le prénom que vous avez fourni à BuyPacker (ou ceux de votre compte FaceBook si vous vous êtes connectés à BuyPacker par ce biais). Les 100 premiers d'entre vous participeront alors à un tirage au sort et deux d'entre eux auront la chance de pouvoir voler au dessus d'une salle en délire. Des tirages au sort auront lieu régulièrement au cours du mois de mars.</p>
+<p>Tu imagines le Bataclan ? Une foule de mille personnes ? Eh bien imagine-<strong>toi</strong> au-dessus de cette foule, planant du haut des balcons jusqu'au sol.</p>
 
-<p> Le prochain tirage au sort aura lieu le XX/XX/XXXX. </p>
+<p>Ca, c’est la tyrolienne : du jamais vu dans une salle en intérieur, la direction du Bataclan emballée par l’idée qui a accepté qu’un professionnel vienne mener des travaux pour une sécurité irréprochable… et ça donne un moment de folie, dans les airs, au-dessus de tous.<p>
+
+<p>« Où je signe ? »</p>
+
+<p>Une fois que tu as acheté ta place, tu peux participer au grand tirage au sort pour gagner ton ticket en guest star sur la tyrolienne. A un jour et une heure précise qui seront communiqués sur le site et la page Facebook, viens sur cette page et rentre ton <strong>nom</strong>, ton <strong>prénom</strong> et l’<strong>adresse mail</strong> utilisée lors de l’achat de ta place. Si tu es dans les cent premiers à t’inscrire, tu seras peut-être parmi les deux chanceux tirés au sort le soir-même, et tu pourras t’élancer au-dessus de la foule en délire le soir du 19 avril ! Et si tu n’y es pas, il te suffira de te réinscrire au prochain tirage, il n’y a pas de limite de participation.</p>
+
+<p>Prochaine date : *****di **/** à 20h : tiens-toi prêt !</p>

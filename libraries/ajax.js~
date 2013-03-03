@@ -8,7 +8,7 @@ var content_going_out = false;
 
 //Ajout des listeners qui vont bien au fichier HTML
 $("#croix_contenu").click(function(){hideContent();});
-$(window).click(function(){hideAll();});
+$(window).click(function(e){if(e.button != 2)hideAll();});
 $("#fond_splayer").click(function(){return false;});
 $("#content").click(function(){hideIpod(); return false;});
 
@@ -54,7 +54,7 @@ function showContent(page){
 				
 				$(this).dequeue();
 			
-			}).animate({'top': 200, 'opacity':1}, 1000, 'swing');
+			}).animate({'top': 210, 'opacity':1}, 1000, 'swing');
 					}); //Fin du callback de load
 				
 				//TODO : Affichage du sablier
