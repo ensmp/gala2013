@@ -12,9 +12,6 @@ $(window).click(function(){hideAll();});
 $("#fond_splayer").click(function(){return false;});
 $("#content").click(function(){hideIpod(); return false;});
 
-//Par défaut rien ne s'affiche
-hideContent();
-
 function showContent(page){
 
 	if(isThatContentShown(page)){
@@ -57,7 +54,7 @@ function showContent(page){
 				
 				$(this).dequeue();
 			
-			}).animate({'top': 160, 'opacity':1}, 1000, 'swing');
+			}).animate({'top': 200, 'opacity':1}, 1000, 'swing');
 					}); //Fin du callback de load
 				
 				//TODO : Affichage du sablier

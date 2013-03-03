@@ -26,6 +26,7 @@ section{
 
 h1{
 	text-align:center;
+	margin-top:0;
 }
 
 .overlay{
@@ -90,6 +91,7 @@ imeuf0{
 
 /* Les sections de contenu */
 #content{
+	display:none;
 	text-align:justify;
 	background-color:#050505;
 	background: rgba(5,5,5,0.9) url('./images/horloge_fond.png') bottom right no-repeat;
