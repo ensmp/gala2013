@@ -20,12 +20,10 @@ showContent('explications.php');
 
 function showContent(page){
 	
-	/*if(isIpodShown())
-		hideIpod();*/
+	hideIpod();
 	
 	if(isThatContentShown(page)){
 		hideContent();
-		return;
 	}else{
 	
 		//Mise à jour de la variable content_name
@@ -130,7 +128,8 @@ function showIpod(){
 }
 
 function hideIpod(){
-	$('#fond_splayer').animate({'bottom':'0px','opacity':0}, 'slow', 'swing').queue(function(){$(this).css('display','none'); $(this).dequeue();});
+	if(isIpodShown())
+		$('#fond_splayer').animate({'bottom':'0px','opacity':0}, 'slow', 'swing').queue(function(){$(this).css('display','none'); $(this).dequeue();});
 };
 
 //Positionnement des éléments via jQuery (voir ça comme du css "dynamique") --> Size independance des éléments positionnés de façon absolue
@@ -152,7 +151,7 @@ function dynaCSS(){
 		$('#fond_splayer').css({'bottom':($(window).height() - 560)/2});
 	
 	//Le lien de la tour eiffel
-	$('#lien_teiffel').css({'width':0.0425*$(window).width(),'height':0.0645*$(window).height(),'left':0.4831*$(window).width(), 'top':0.5778*$(window).height()});
+	$('#lien_teiffel').css({'width':0.12*$(window).width(),'height':0.15*$(window).height(),'left':0.4431*$(window).width(), 'top':0.5378*$(window).height()});
 	
 	//Les blocs de contenu	
 	var cv = contenWidth();

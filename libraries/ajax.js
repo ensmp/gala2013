@@ -24,7 +24,6 @@ function showContent(page){
 	
 	if(isThatContentShown(page)){
 		hideContent();
-		return;
 	}else{
 	
 		//Mise à jour de la variable content_name
@@ -152,7 +151,7 @@ function dynaCSS(){
 		$('#fond_splayer').css({'bottom':($(window).height() - 560)/2});
 	
 	//Le lien de la tour eiffel
-	$('#lien_teiffel').css({'width':0.0425*$(window).width(),'height':0.0645*$(window).height(),'left':0.4831*$(window).width(), 'top':0.5778*$(window).height()});
+	$('#lien_teiffel').css({'width':0.12*$(window).width(),'height':0.15*$(window).height(),'left':0.4431*$(window).width(), 'top':0.5678*$(window).height()});
 	
 	//Les blocs de contenu	
 	var cv = contenWidth();

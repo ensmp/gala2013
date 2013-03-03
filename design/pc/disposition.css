@@ -75,7 +75,7 @@ imeuf0{
 	z-index:1;
 }
 
-#lien_ipod, #lien_portable, #croix_contenu, #lien_preventes, #lien_preventes_sac_devant, #lien_camera, #lien_portefeuille, #lien_cravate, #lien_teiffel, #lien_mouchoir{
+#lien_ipod, #lien_portable, #croix_contenu, #lien_preventes, #lien_preventes_sac_devant, #lien_camera, #lien_portefeuille, #lien_cravate, #lien_teiffel, #lien_mouchoir, #the_header{
 	cursor:pointer;
 }
 
