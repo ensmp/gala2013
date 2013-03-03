@@ -112,7 +112,7 @@ $(function(){
  	$('<div id="lien_cravate"></div>').appendTo($('#mec')).css({'display':'block', 'position':'absolute','width':0.0629*wImageMec,'height':0.2517*hImageMec,'left':0.5769*wImageMec, 'top':0.1933*hImageMec}).click(function(){return showContent('partenaires.php'); return false;});
  	
  	//Lien de la tour Eiffel
- 	$('<div id="lien_teiffel"></div>').appendTo($('body')).css({'display':'block', 'position':'absolute','width':0.0225*$(window).width(),'height':0.0245*$(window).height(),'left':0.4931*$(window).width(), 'top':0.5978*$(window).height()}).click(function(){return showContent('tyrolienne.php'); return false;});
+ 	$('<div id="lien_teiffel"></div>').appendTo($('body')).css({'display':'block', 'position':'absolute','width':0.0625*$(window).width(),'height':0.0645*$(window).height(),'left':0.4531*$(window).width(), 'top':0.5978*$(window).height()}).click(function(){return showContent('tyrolienne.php'); return false;});
  	
  	//Lien du mouchoir
  	$('<div id="lien_mouchoir"></div>').appendTo($('#overlay_mec_out_mouchoir')).css({'display':'block', 'position':'absolute','width':0.05*wImageMec,'height':0.04*hImageMec,'left':0.02*wImageMec, 'top':0.008*hImageMec}).click(function(){return showContent('animationsSoiree.php'); return false;});
@@ -133,20 +133,20 @@ $(function(){
 	), new Array());
 	
 	cocotteSortie = new Etat("cocotte_sortie", 12, new Array(
-		new OverlayMeuf("out_zone_cocotte",0,0,1,1,false,"sage", function(){$(this).dequeue();}, "meuf"),
+		new OverlayMeuf("out_zone_cocotte",0.01,0,0.99,1,false,"sage", function(){$(this).dequeue();}, "meuf"),
 		
 		new OverlayMeuf("in_sac",0.0494,0.4133,0.2442,0.1267,true,"sac_devant", function(){$(this).dequeue();}, "overlay_meuf_out_zone_cocotte")
 	
 	), new Array());
 	
 	sacDevant = new Etat("sac_devant", 17, new Array(
-		new OverlayMeuf("out_sac_devant",0.0004,0.05,0.5,0.55,false,"cocotte_sortie", function(){$(this).dequeue();}, "meuf"),
+		new OverlayMeuf("out_sac_devant",0.03,0.05,0.6,0.55,false,"cocotte_sortie", function(){$(this).dequeue();}, "meuf"),
 		
-		new OverlayMeuf("in_ouverture_sac",0.07,0.15,0.3091,0.135,true,"sac_ouvert", function(){$(this).dequeue();}, "overlay_meuf_out_sac_devant")
+		new OverlayMeuf("in_ouverture_sac",0.06,0.20,0.2591,0.135,true,"sac_ouvert", function(){$(this).dequeue();}, "overlay_meuf_out_sac_devant")
 	), new Array('lien_preventes_sac_devant'));
 	
 	sacOuvert = new Etat("sac_ouvert", 23, new Array(
-		new OverlayMeuf("out_sac_sorti",0.08,0.12,0.3,0.28,false,"sac_devant", function(){$(this).dequeue();}, "meuf"),
+		new OverlayMeuf("out_sac_sorti",0.08,0.12,0.4,0.28,false,"sac_devant", function(){$(this).dequeue();}, "meuf"),
 		
 		new OverlayMeuf("in_camera",0.03,0.07,0.115,0.13,true,"camera_sortie", function(){$('#camera_meuf').animate({'top':'-='+0.07*hImageMeuf}, 'fast', 'swing'); $(this).dequeue();}, "overlay_meuf_out_sac_sorti"),
 		
@@ -239,18 +239,23 @@ $(function(){
   	this.disableOverlays = function(){
   		for(var i=0; i<this.overlays.length; i++)
   			this.overlays[i].disable();
-  		
-  		for(var i=0; i<this.interactions.length; i++)
-  			$('#'+this.interactions[i]).hide();
   	}
   	
   	this.enableOverlays = function(){
   		for(var i=0; i<this.overlays.length; i++)
   			this.overlays[i].enable();
-  			
+  	}
+  	
+  	this.enableInteractions = function(){
   		for(var i=0; i<this.interactions.length; i++)
   			$('#'+this.interactions[i]).show();
   	}
+  	
+  	this.disableInteractions = function(){
+  		for(var i=0; i<this.interactions.length; i++)
+  			$('#'+this.interactions[i]).hide();
+  	}
+  	
   	
   	this.getOverlay = function(nom){
   		for(var i=0; i<this.overlays.length; i++){
@@ -267,15 +272,6 @@ $(function(){
   	
   	this.etatCourant = new Etat("default", 0, new Array(), new Array());
   	
-  	this.currentImgNb = function(){
-  		for(var i=1; i<tImagesMec.length; i++){
-  			if(tImagesMec[0].attr("src") == tImagesMec[i].attr("src")){
-  				return i;
-  				}
-  		}
-  		return -1;
-  	}
-  	
   	this.jumpTo = function(nom_etat){
   	
   		//Recherche de l'état à afficher
@@ -286,15 +282,18 @@ $(function(){
   		}
   		
   		if(c!=-1){
-  			//Suppression des overlays relatifs à cet état
+  			//On garde en mémoire le numéro de l'image courante (i.e. correspondant à l'état courant)
+  			var cinb = manMec.etatCourant.img;
+  		
+  			//Suppression des overlays et interactions relatifs à cet état
   			this.etatCourant.disableOverlays();
-  			
+  			tImagesMec[0].queue('fx', function(){manMec.etatCourant.disableInteractions();$(this).dequeue();});
+  			manMec.etatCourant = manMec.mEtats[c];
+  			manMec.mEtats[c].enableOverlays();
   			//Création du parcours d'animation (TODO : utiliser des arbres pour calculer ledit chemin)
   			
-  			//$('#bugs').text(this.currentImgNb() + ' bite ' + this.mEtats[c].img);
-  			
   			return this.recAnim(
-  			this.currentImgNb(), this.mEtats[c].img, this.mEtats[c].img).queue('fx', function(){manMec.mEtats[c].enableOverlays();manMec.etatCourant = manMec.mEtats[c];$(this).dequeue();});
+  			cinb, this.mEtats[c].img, this.mEtats[c].img).queue('fx', function(){manMec.etatCourant.enableInteractions();$(this).dequeue();});
   		}
   		
   	}
@@ -355,15 +354,6 @@ $(function(){
   	
   	this.etatCourant = new Etat("default", 0, new Array(), new Array());
   	
-  	this.currentImgNb = function(){
-  		for(var i=1; i<tImagesMeuf.length; i++){
-  			if(tImagesMeuf[0].attr("src") == tImagesMeuf[i].attr("src")){
-  				return i;
-  				}
-  		}
-  		return -1;
-  	}
-  	
   	this.jumpTo = function(nom_etat){
   	
   		//Recherche de l'état à afficher
@@ -374,13 +364,20 @@ $(function(){
   		}
   		
   		if(c!=-1){
+  			//On garde en mémoire le numéro de l'image censée être l'image courante au moment ou l'animation sera déclenchée (et non la vraie image courante au moment ou cette fonction est appelée)
+  			var cinb = manMeuf.etatCourant.img;
+  			
   			//Suppression des overlays relatifs à cet état
   			this.etatCourant.disableOverlays();
-  			
+  			tImagesMeuf[0].queue('fx', function(){manMeuf.etatCourant.disableInteractions();$(this).dequeue();});
+  			manMeuf.etatCourant = manMeuf.mEtats[c];
+  			manMeuf.mEtats[c].enableOverlays();
   			//Création du parcours d'animation (TODO : utiliser des arbres pour calculer ledit chemin)
   			
+  			
+  			
   			return this.recAnim(
-  			this.currentImgNb(), this.mEtats[c].img, this.mEtats[c].img).queue('fx', function(){manMeuf.mEtats[c].enableOverlays();manMeuf.etatCourant = manMeuf.mEtats[c];$(this).dequeue();});
+  			cinb, this.mEtats[c].img, this.mEtats[c].img).queue('fx', function(){manMeuf.etatCourant.enableInteractions();$(this).dequeue();});
   		}
   		
   	}

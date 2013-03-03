@@ -35,6 +35,7 @@ h1{
 	z-index:-1; /*Les overlays sont dans le background par défaut */
 	opacity:0.0;
 	background-color:yellow;
+	/*border: 1px solid red;*/
 }
 
 /* Le design de base */

@@ -16,17 +16,21 @@ $(window).click(function(e){
 $("#fond_splayer").click(function(){return false;});
 $("#content").click(function(){hideIpod(); return false;});
 
+showContent('explications.php');
+
 function showContent(page){
 
 	if(isThatContentShown(page)){
 		hideContent();
 		return;
 	}else{
-
+	
+		//Mise à jour de la variable content_name
+			content_name = page;
+			
 		//Chargement du contenu via XHR
 			//Affichage du "sablier" et (éventuel) désaffichage du bloc de contenu déjà présent
 			hideContent();
-		
 		
 			//Lancement de la requete
 		
@@ -68,9 +72,6 @@ function showContent(page){
 					}); //Fin du callback de load
 				
 				//TODO : Affichage du sablier
-				
-				//Mise à jour de la variable content_name
-				content_name = page;
 				
 				$(this).dequeue();
 			});
@@ -148,7 +149,7 @@ function dynaCSS(){
 		$('#fond_splayer').css({'bottom':($(window).height() - 560)/2});
 	
 	//Le lien de la tour eiffel
-	$('#lien_teiffel').css({'width':0.0225*$(window).width(),'height':0.0245*$(window).height(),'left':0.4931*$(window).width(), 'top':0.5978*$(window).height()});
+	$('#lien_teiffel').css({'width':0.0425*$(window).width(),'height':0.0645*$(window).height(),'left':0.4831*$(window).width(), 'top':0.5778*$(window).height()});
 	
 	//Les blocs de contenu	
 	var cv = contenWidth();
