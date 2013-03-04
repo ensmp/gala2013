@@ -5,6 +5,7 @@ body{
 	background-color:#0b080f;
 	overflow-y:scroll;
 	overflow-x:hidden;
+	font-family: Arial, Helvetica, "Liberation Sans", FreeSans, sans-serif;
 }
 
 #mec{

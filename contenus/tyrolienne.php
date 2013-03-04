@@ -19,7 +19,7 @@ if ($date1 < $now) {
 	if ($date1 < $now) {
 	}
 	else {
-		echo '<p class = "erreur">Trop tard pour participer !</p>';
+		echo '<p>Trop tard pour participer !</p>';
 	}
 }
 else {
