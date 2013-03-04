@@ -15,7 +15,6 @@ $(window).click(function(e){
 });
 $("#fond_splayer").click(function(){return false;});
 $("#content").click(function(){hideIpod(); return false; });
-$("#content > a").click(return true; });
 
 showContent('explications.php');
 
@@ -67,6 +66,8 @@ function showContent(page){
 				
 				//TODO : Désaffichage du sablier
 				
+				//Activation des liens du bloc de contenu
+				$("a").click(function(){ window.location.href = $(this).attr('href'); return false; });
 				
 				$(this).dequeue();
 			

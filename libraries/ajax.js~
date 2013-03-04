@@ -66,6 +66,8 @@ function showContent(page){
 				
 				//TODO : Désaffichage du sablier
 				
+				//Activation des liens du bloc de contenu
+				$("a").click(function(){ window.location.href = $(this).attr('href'); return true; });
 				
 				$(this).dequeue();
 			
