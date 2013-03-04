@@ -112,7 +112,7 @@ $(function(){
  	$('<div id="lien_cravate"></div>').appendTo($('#mec')).css({'display':'block', 'position':'absolute','width':0.0629*wImageMec,'height':0.2517*hImageMec,'left':0.5769*wImageMec, 'top':0.1933*hImageMec}).click(function(){return showContent('partenaires.php'); return false;});
  	
  	//Lien de la tour Eiffel
- 	$('<div id="lien_teiffel"></div>').appendTo($('body')).css({'display':'block', 'position':'absolute','width':0.0625*$(window).width(),'height':0.0645*$(window).height(),'left':0.4531*$(window).width(), 'top':0.5978*$(window).height()}).click(function(){return showContent('tyrolienne.php'); return false;});
+ 	//$('<div id="lien_teiffel"></div>').appendTo($('body')).css({'display':'block', 'position':'absolute','width':0.0625*$(window).width(),'height':0.0645*$(window).height(),'left':0.4531*$(window).width(), 'top':0.5978*$(window).height()}).click(function(){return showContent('tyrolienne.php'); return false;});
  	
  	//Lien du mouchoir
  	$('<div id="lien_mouchoir"></div>').appendTo($('#overlay_mec_out_mouchoir')).css({'display':'block', 'position':'absolute','width':0.05*wImageMec,'height':0.04*hImageMec,'left':0.02*wImageMec, 'top':0.008*hImageMec}).click(function(){return showContent('animationsSoiree.php'); return false;});
@@ -176,7 +176,7 @@ $(function(){
 	$('#portefeuille_meuf').css({'left':0.239*wImageMeuf, 'top':0.2667*hImageMeuf, 'z-index':2, 'display':'none'});
 	
 	//Lien de la cocotte, de la caméra et du portefeuille
-	$('<div  id="lien_preventes"></div>').appendTo($('#overlay_meuf_out_zone_cocotte')).css({'display':'block', 'position':'absolute','width':0.13*wImageMeuf,'height':0.065*hImageMeuf,'top':0.39*wImageMeuf, 'left':0.55*hImageMeuf}).click(function(){return showContent('preventes.php');});
+	$('<div  id="lien_preventes"></div>').appendTo($('#overlay_meuf_out_zone_cocotte')).css({'display':'block', 'position':'absolute','width':0.13*wImageMeuf,'height':0.065*hImageMeuf,'top':0.39*wImageMeuf, 'left':0.55*hImageMeuf}).click(function(){return showContent('tyrolienne.php');});
 	
 	$('#lien_preventes_sac_devant').css({'display':'none', 'position':'absolute','left':0.8078*wImageMeuf,'top':0.2583*hImageMeuf,'width':0.1403*wImageMeuf, 'height':0.0717*hImageMeuf}).click(function(){return showContent('preventes.php');});
 	
