@@ -15,6 +15,7 @@ $(window).click(function(e){
 });
 $("#fond_splayer").click(function(){return false;});
 $("#content").click(function(){hideIpod(); return false; });
+$("#content > a").click(return true; });
 
 showContent('explications.php');
 
