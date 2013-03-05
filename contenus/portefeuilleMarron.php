@@ -2,10 +2,14 @@
 
 <ul>	<li><strong>Quand ?</strong> Le vendredi 19 avril, à partir de 23h30</li>	<li><strong>Où ?</strong> Au Bataclan, salle de spectacle et de soirée prestigieuse en plein cœur de Paris</li>	<li><strong>Comment ?</strong></li>
 	<ul>		<li><img align="middle" src = "./design/pc/images/metro.png"></li>
+		<ul style="list-style:none;">
 		<li><img align="middle" src = "./design/pc/images/5.png"><img align="middle" src = "./design/pc/images/9.png"> Oberkampf</li>
-		<li><img align="middle" src = "./design/pc/images/8.png">Filles du Calvaire</li>		<li><img align="middle" src = "./design/pc/images/bus.png"></li>
-		<li><img align="middle" src = "./design/pc/images/bus_56.jpg">Oberkampf – Richard Lenoir</li>
-		<li><img align="middle" src = "./design/pc/images/bus_96.jpg">Oberkampf – Filles du Calvaire</li>
+		<li><img align="middle" src = "./design/pc/images/8.png">Filles du Calvaire</li>		</ul>
+		<li><img align="middle" src = "./design/pc/images/bus.png"></li>
+		<ul style="list-style:none;">
+		<li><img align="middle" src = "./design/pc/images/bus_56.jpg" style="width:30px;">Oberkampf – Richard Lenoir</li>
+		<li><img align="middle" src = "./design/pc/images/bus_96.jpg" style="width:30px;">Oberkampf – Filles du Calvaire</li>
+		</ul>
 	</ul>	<li><strong>Combien ?</strong></li>
 		<ul>
 			<li>Entrée :</li>
