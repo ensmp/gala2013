@@ -19,7 +19,6 @@ $("#content").click(function(){hideIpod(); return false; });
 showContent('explications.php');
 
 function showContent(page){
-	
 	hideIpod();
 	
 	if(isThatContentShown(page)){
@@ -67,7 +66,7 @@ function showContent(page){
 				//TODO : Désaffichage du sablier
 				
 				//Activation des liens du bloc de contenu
-				$("a").click(function(){ window.location.href = $(this).attr('href'); return false; });
+				$("a").click(function(){ window.open($(this).attr('href')); return false; });
 				
 				$(this).dequeue();
 			
