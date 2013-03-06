@@ -3,9 +3,6 @@
 //Variable désignant le nom du contenu actuellement à l'écran
 var content_name = '';
 
-//Variable activée lorsqu'on est en train d'afficher un contenu
-var content_going_out = false;
-
 //Ajout des listeners qui vont bien au fichier HTML
 $("#croix_contenu").click(function(){hideContent(); return false;});
 $(window).click(function(e){
@@ -16,6 +13,20 @@ $(window).click(function(e){
 $("#fond_splayer").click(function(){return false;});
 $("#content").click(function(){hideIpod(); return false; });
 
+//Les liens des icônes
+$('#lien_facebook').click(function(){ window.open("http://www.facebook.com/events/111682155685603/"); return false; });
+
+//La barre d'espace pour play/pauser le iPod
+$('*').keypress(function(event){ 
+	if(event.which == 32){
+		if(!isIpodShown() && !pIsPlaying())
+			showIpod();
+		pPlaypause();
+		return false;
+	}
+});
+
+//On affiche les explications sur la page d'accueil
 showContent('explications.php');
 
 function showContent(page){

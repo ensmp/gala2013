@@ -76,8 +76,15 @@ imeuf0{
 	z-index:1;
 }
 
-#lien_ipod, #lien_portable, #croix_contenu, #lien_preventes, #lien_preventes_sac_devant, #lien_camera, #lien_portefeuille, #lien_cravate, #lien_teiffel, #lien_mouchoir, #the_header{
+#lien_ipod, #lien_portable, #croix_contenu, #lien_preventes, #lien_preventes_sac_devant, #lien_camera, #lien_portefeuille, #lien_cravate, #lien_teiffel, #lien_mouchoir, #the_header, #lien_facebook{
 	cursor:pointer;
+}
+
+#lien_facebook{
+	display:block;
+	position:fixed;
+	right:5%;
+	bottom:5%;
 }
 
 /* Les sections de contenu */

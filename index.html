@@ -29,8 +29,8 @@
  		<!-- Mettre les liens ici aussi pour pouvoir faire une interface classique pour mobile -->
  		
  		<!-- Le header -->
- 		<header>
-			<img src = "./design/pc/images/titre.png" alt="MineNight in Paris - Le Gala des Mines de Paris" id="the_header">
+ 		<header id="the_header">
+			<img src = "./design/pc/images/titre.png" alt="MineNight in Paris - Le Gala des Mines de Paris" >
  		</header>
  		
 		<!-- Les spots lumineux -->
@@ -91,6 +91,12 @@
     	</div>
     	
     </section>
+    
+    <!-- Affichage du lien FaceBook et du lien pour les préventes -->
+    
+    <nav  id="lien_facebook">
+    	<img alt="Facebook" src="./design/pc/images/facebook_big.png"/>
+    </nav>
     
     <!-- Affichage du lecteur (parallèlement avec le CSS) -->
 
@@ -214,7 +220,13 @@
 			}
 	
 			setCurrentSong(0);
-	
+			
+			function pIsPlaying(){
+				var player = document.querySelector('#song_'+currentSong.id);
+				
+				return !player.paused;
+			}
+			
 			function pPlaypause(){
 				var player = document.querySelector('#song_'+currentSong.id);
 		
@@ -313,33 +325,7 @@
 					player.play();
 				
 				player.currentTime = (duration * percent) / 100;
-			}}, false);
-	
-			function getMousePosition(event) {
-				if (event.pageX) {
-				    return {
-				        x: event.pageX,
-				        y: event.pageY
-				    };
-				} else {
-				    return { 
-				        x: event.clientX + document.body.scrollLeft + document.documentElement.scrollLeft, 
-				        y: event.clientY + document.body.scrollTop  + document.documentElement.scrollTop
-				    };
-				}
-			}   
-	
-			function getPosition(element){
-				var top = 0, left = 0;
-				 
-				while (element) {
-				    left   += element.offsetLeft;
-				    top    += element.offsetTop;
-				    element = element.offsetParent;
-				}
-				 
-				return { x: left, y: top };
-			}
+			}});
 			
 			function pProgress(){
 				var player = document.querySelector('#song_'+currentSong.id);
@@ -355,6 +341,34 @@
 				}
 				
 			}
+			
+			 /* Fonctions Javascript utiles pour la détection de si on est ou pas dans un bloc */
+			 function getMousePosition(event) {
+				if (event.pageX) {
+						return {
+							  x: event.pageX,
+							  y: event.pageY
+						};
+				} else {
+						return { 
+							  x: event.clientX + document.body.scrollLeft + document.documentElement.scrollLeft, 
+							  y: event.clientY + document.body.scrollTop  + document.documentElement.scrollTop
+						};
+				}
+			}   
+
+			function getPosition(element){
+				var top = 0, left = 0;
+				 
+				while (element) {
+						left   += element.offsetLeft;
+						top    += element.offsetTop;
+						element = element.offsetParent;
+				}
+				 
+				return { x: left, y: top };
+			}
+
 
 	
 		</script>

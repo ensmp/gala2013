@@ -5,6 +5,7 @@ body{
 	background-color:#0b080f;
 	overflow-y:scroll;
 	overflow-x:hidden;
+	font-family: Arial, Helvetica, "Liberation Sans", FreeSans, sans-serif;
 }
 
 #mec{
@@ -75,12 +76,13 @@ imeuf0{
 	z-index:1;
 }
 
-#lien_ipod, #lien_portable, #croix_contenu, #lien_preventes, #lien_preventes_sac_devant, #lien_camera, #lien_portefeuille, #lien_cravate, #lien_teiffel, #lien_mouchoir, #the_header{
+#lien_ipod, #lien_portable, #croix_contenu, #lien_preventes, #lien_preventes_sac_devant, #lien_camera, #lien_portefeuille, #lien_cravate, #lien_teiffel, #lien_mouchoir, #the_header, #lien_facebook{
 	cursor:pointer;
 }
 
-#the_header{
+#lien_facebook{
 	display:block;
+	position:fixed;
 }
 
 /* Les sections de contenu */
@@ -113,15 +115,15 @@ imeuf0{
 	background-image:url('./images/croix_contenu_hovered.png');
 }
 
-	/* Mise en page CSS des divers contenus */
-	#contenu a {
-		color: #5AA0CC;
-		text-decoration: none;
-	}
+/* Mise en page CSS des divers contenus */
+#content a {
+	color: #5AA0CC;
+	text-decoration: none;
+}
 
-	#contenu strong {
-		color: #FA0; /** ET EN BO !*/
-	}
+#content strong {
+	color: #FA0; /** ET EN BO !*/
+}
 
 /* Tout ce qui concerne le lecteur */
 
