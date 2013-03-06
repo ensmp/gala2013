@@ -6,22 +6,17 @@ Si tu as des questions sur le Gala, tu trouveras ici les contacts idéaux qui r�
 
 <div style="width:50%;float:left;">
 <p><strong>Ambroise COLLON</strong><br/>
-<img align="middle" src = "./design/pc/images/contact.png"/>
-Président du Gala, BDE des Mines ParisTech<br/>
-<img align="middle" src = "./design/pc/images/phone.png"/>
+Président du Gala<br/>
+BDE des Mines ParisTech<br/>
 06 67 47 83 58 </p>
 
 <p><strong>Camille LAÏLY</strong><br/>
-<img align="middle" src = "./design/pc/images/contact.png"/>
-Vice-présidente du Gala,
+Vice-présidente du Gala<br/>
 BDE des Mines ParisTech <br/>
-<img align="middle" src = "./design/pc/images/phone.png"/>
 07 70 64 09 70</p>
 
 <p><strong>Annabelle SIBUÉ</strong><br/>
-<img align="middle" src = "./design/pc/images/contact.png"/>
 Bureau du BDE des Mines ParisTech <br/>
-<img align="middle" src = "./design/pc/images/phone.png"/>
 06 26 27 29 13</p>
 </div>
 <div style="width:50%;float:right;">
