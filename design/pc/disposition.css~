@@ -48,7 +48,7 @@ h1{
 .overlay{
 	position:absolute;
 	z-index:-1; /*Les overlays sont dans le background par défaut */
-	opacity:0.0;
+	opacity:0.6;
 	background-color:yellow;
 	/*border: 1px solid red;*/
 }
@@ -90,19 +90,15 @@ imeuf0{
 	z-index:1;
 }
 
-<<<<<<< HEAD
-#lien_ipod, #lien_portable, #croix_contenu, #lien_preventes, #lien_preventes_sac_devant, #lien_camera, #lien_portefeuille, #lien_cravate, #lien_teiffel, #lien_mouchoir, #the_header, #lien_facebook{
-=======
-#lien_ipod, #lien_portable, #croix_contenu, #lien_preventes, #lien_preventes_sac_devant, #lien_camera, #lien_portefeuille, #lien_cravate, #lien_teiffel, #lien_mouchoir, #the_header, #lieu{
->>>>>>> ff9210c05f93a5b5bc554c7727f2713c88c7dac3
+#lien_ipod, #lien_portable, #croix_contenu, #lien_preventes, #lien_preventes_sac_devant, #lien_camera, #lien_portefeuille, #lien_cravate, #lien_teiffel, #lien_mouchoir, #the_header, #lien_facebook, #lieu{
 	cursor:pointer;
 }
 
 #lien_facebook{
 	display:block;
 	position:fixed;
-	right:5%;
-	bottom:5%;
+	right:1%;
+	bottom:1%;
 }
 
 /* Les sections de contenu */

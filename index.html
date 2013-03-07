@@ -130,52 +130,52 @@
 
 		<!-- Le cerveau du lecteur -->
 		<audio class="song_playlist" id="song_cytise">
+		<source src="./contenus/player_songs/cytise.ogg" type="audio/ogg" preload="metadata"></source>
 			<source src="./contenus/player_songs/cytise.mp3" type="audio/mpeg" preload="metadata"></source>
-			<source src="./contenus/player_songs/cytise.ogg" type="audio/ogg" preload="metadata"></source>
 		</audio>
 		<audio class="song_playlist" id="song_disque_oh">
-			<source src="./contenus/player_songs/disque_oh.mp3" type="audio/mpeg" preload="metadata"></source>
 			<source src="./contenus/player_songs/disque_oh.ogg" type="audio/ogg" preload="metadata"></source>
+			<source src="./contenus/player_songs/disque_oh.mp3" type="audio/mpeg" preload="metadata"></source>
 		</audio>
 		<audio class="song_playlist" id="song_do_it_again">
-			<source src="./contenus/player_songs/do_it_again.mp3" type="audio/mpeg" preload="metadata"></source>
 			<source src="./contenus/player_songs/do_it_again.ogg" type="audio/ogg" preload="metadata"></source>
+			<source src="./contenus/player_songs/do_it_again.mp3" type="audio/mpeg" preload="metadata"></source>
 		</audio>
 		<audio class="song_playlist" id="song_essential">
-			<source src="./contenus/player_songs/essential.mp3" type="audio/mpeg" preload="metadata"></source>
 			<source src="./contenus/player_songs/essential.ogg" type="audio/ogg" preload="metadata"></source>
+			<source src="./contenus/player_songs/essential.mp3" type="audio/mpeg" preload="metadata"></source>
 		</audio>
 		<audio class="song_playlist" id="song_falcon_punch">
-			<source src="./contenus/player_songs/falcon_punch.mp3" type="audio/mpeg" preload="metadata"></source>
 			<source src="./contenus/player_songs/falcon_punch.ogg" type="audio/ogg" preload="metadata"></source>
+			<source src="./contenus/player_songs/falcon_punch.mp3" type="audio/mpeg" preload="metadata"></source>
 		</audio>
 		<audio class="song_playlist" id="song_mambo_jet">
-			<source src="./contenus/player_songs/mambo_jet.mp3" type="audio/mpeg" preload="metadata"></source>
 			<source src="./contenus/player_songs/mambo_jet.ogg" type="audio/ogg" preload="metadata"></source>
+			<source src="./contenus/player_songs/mambo_jet.mp3" type="audio/mpeg" preload="metadata"></source>
 		</audio>
 		<audio class="song_playlist" id="song_slow_down">
-			<source src="./contenus/player_songs/slow_down.mp3" type="audio/mpeg" preload="metadata"></source>
 			<source src="./contenus/player_songs/slow_down.ogg" type="audio/ogg" preload="metadata"></source>
+			<source src="./contenus/player_songs/slow_down.mp3" type="audio/mpeg" preload="metadata"></source>
 		</audio>
 		<audio class="song_playlist" id="song_take_care_of_you">
-			<source src="./contenus/player_songs/take_care_of_you.mp3" type="audio/mpeg" preload="metadata"></source>
 			<source src="./contenus/player_songs/take_care_of_you.ogg" type="audio/ogg" preload="metadata"></source>
+			<source src="./contenus/player_songs/take_care_of_you.mp3" type="audio/mpeg" preload="metadata"></source>
 		</audio>
 		<audio class="song_playlist" id="song_tearing">
-			<source src="./contenus/player_songs/tearing.mp3" type="audio/mpeg" preload="metadata"></source>
 			<source src="./contenus/player_songs/tearing.ogg" type="audio/ogg" preload="metadata"></source>
+			<source src="./contenus/player_songs/tearing.mp3" type="audio/mpeg" preload="metadata"></source>
 		</audio>
 		<audio class="song_playlist" id="song_teion">
-			<source src="./contenus/player_songs/teion.mp3" type="audio/mpeg" preload="metadata"></source>
 			<source src="./contenus/player_songs/teion.ogg" type="audio/ogg" preload="metadata"></source>
+			<source src="./contenus/player_songs/teion.mp3" type="audio/mpeg" preload="metadata"></source>
 		</audio>
 		<audio class="song_playlist" id="song_the_bait">
-			<source src="./contenus/player_songs/the_bait.mp3" type="audio/mpeg" preload="metadata"></source>
 			<source src="./contenus/player_songs/the_bait.ogg" type="audio/ogg" preload="metadata"></source>
+			<source src="./contenus/player_songs/the_bait.mp3" type="audio/mpeg" preload="metadata"></source>
 		</audio>
 		<audio class="song_playlist" id="song_wild_child">
-			<source src="./contenus/player_songs/wild_child.mp3" type="audio/mpeg" preload="metadata"></source>
 			<source src="./contenus/player_songs/wild_child.ogg" type="audio/ogg" preload="metadata"></source>
+			<source src="./contenus/player_songs/wild_child.mp3" type="audio/mpeg" preload="metadata"></source>
 		</audio>
 		<script>
 	
@@ -208,12 +208,12 @@
 			);
 			
 			//On mélange la playlist
-			/*for(var i = tSongs.length; i>=0; i--){
+			for(var i = tSongs.length - 1; i>=0; i--){
 				var j = Math.floor(Math.random() * (i + 1));
 				var tmp = tSongs[i];
 				tSongs[i] = tSongs[j];
 				tSongs[j] = tmp;
-			}*/
+			}
 			
 			var currentSong = tSongs[0];
 	
@@ -323,7 +323,7 @@
 				
 				var wrapperWidth = document.querySelector('#splayer_progressbar').offsetWidth;
 				 
-				var percent = Math.ceil((x / wrapperWidth) * 100);    
+				var percent = (x / wrapperWidth) * 100;    
 				var duration = player.duration;
 				
 				if (player.paused)

@@ -50,7 +50,7 @@ $(function(){
   costardFerme = 
  	new Etat("costard_fermé", 1, new Array(
  	
- 		new OverlayMec("main",0.2483,0.23,0.3,0.3,true,"costard_ouvert", function(){$(this).dequeue();}, "mec"),
+ 		new OverlayMec("main",0.2483,0.23,0.3,0.4,true,"costard_ouvert", function(){$(this).dequeue();}, "mec"),
  			
  		new OverlayMec("iPoche", 0.7377, 0.5417, 0.0909, 0.07,true,"iPod_sorti", function(){$('#ipod_mec').animate({'top':'-='+0.0533*hImageMec}, 'fast', 'swing');$(this).dequeue();}, "mec"), 
  		
@@ -58,9 +58,12 @@ $(function(){
  		
  	), new Array("ipod_mec", "poche_pantalon", "mouchoir_mec", "poche_mouchoir_mec"));
  		
+ 		
+ 		ovOutVeste = new OverlayMec("out_veste", 0.034, 0.192, 0.560, 0.391, false, "costard_fermé", function(){$(this).dequeue();},"mec");
+ 		
  	costardOuvert =
    	new Etat("costard_ouvert", 6, new Array(
-    	new OverlayMec("out_veste", 0.034, 0.192, 0.560, 0.391, false, "costard_fermé", function(){$(this).dequeue();},"mec"),
+    	ovOutVeste,
     	
     	new OverlayMec("in_portable", 0.18, 0.15, 0.15, 0.10, true, "portable_sorti", function(){
     		$('#portable_mec').animate({'top':'-='+0.0367*hImageMec}, 'fast', 'swing');
@@ -70,8 +73,9 @@ $(function(){
     	
     	
   portableSorti = new Etat("portable_sorti", 6, new Array(
-  
-  	new OverlayMec("out_portable", 0.1788, 0.2933, 0.2222, 0.1683, false, "costard_ouvert", function(){$('#portable_mec').animate({'top':'+='+0.0367*hImageMec}, 'fast', 'swing');$(this).dequeue();},"mec")
+  	ovOutVeste,
+  	
+  	new OverlayMec("out_portable", 0.1448, 0.1013, 0.2222, 0.1683, false, "costard_ouvert", function(){$('#portable_mec').animate({'top':'+='+0.0367*hImageMec}, 'fast', 'swing');$(this).dequeue();},"overlay_mec_out_veste")
   	
   ), new Array("portable_mec", "poche_basse_mec"));
   
@@ -111,9 +115,7 @@ $(function(){
  	//Lien de la cravate
  	$('<div id="lien_cravate"></div>').appendTo($('#mec')).css({'display':'block', 'position':'absolute','width':0.0629*wImageMec,'height':0.2517*hImageMec,'left':0.5769*wImageMec, 'top':0.1933*hImageMec}).click(function(){return showContent('partenaires.php'); return false;});
  	
- 	//Lien de la tour Eiffel
-
- 	/*$('<div id="lien_teiffel"></div>').appendTo($('body')).css({'display':'block', 'position':'absolute','width':0.12*$(window).width(),'height':0.15*$(window).height(),'left':0.4431*$(window).width(), 'top':0.5678*$(window).height()}).click(function(){return showContent('tyrolienne.php'); return false;});*/
+ 	//Lien "Bataclan"
 	$('#lieu').click(function(){return showContent('bataclan.php'); return false;});
 
  	
@@ -136,36 +138,64 @@ $(function(){
 		new OverlayMeuf("sac_init",0.2701,0.4633,0.1091,0.14,true,"sac_devant", function(){$(this).dequeue();}, "meuf")
 		
 	), new Array());
-	
+		
+		ovOutZoneCocotte = new OverlayMeuf("out_zone_cocotte",0.01,0,0.99,1,false,"sage", function(){$(this).dequeue();}, "meuf");
+		
 	cocotteSortie = new Etat("cocotte_sortie", 12, new Array(
-		new OverlayMeuf("out_zone_cocotte",0.01,0,0.99,1,false,"sage", function(){$(this).dequeue();}, "meuf"),
+		ovOutZoneCocotte,
 		
 		new OverlayMeuf("in_sac",0.0494,0.4133,0.2442,0.1267,true,"sac_devant", function(){$(this).dequeue();}, "overlay_meuf_out_zone_cocotte")
 	
 	), new Array());
 	
+	ovOutSacDevant = new OverlayMeuf("out_sac_devant",0.02,0.05,0.6,0.55,false,"cocotte_sortie", function(){$(this).dequeue();}, "overlay_meuf_out_zone_cocotte");
+	
 	sacDevant = new Etat("sac_devant", 17, new Array(
-		new OverlayMeuf("out_sac_devant",0.03,0.05,0.6,0.55,false,"cocotte_sortie", function(){$(this).dequeue();}, "meuf"),
+		ovOutZoneCocotte,
+		
+		ovOutSacDevant,
 		
 		new OverlayMeuf("in_ouverture_sac",0.06,0.20,0.2591,0.135,true,"sac_ouvert", function(){$(this).dequeue();}, "overlay_meuf_out_sac_devant")
 	), new Array('lien_preventes_sac_devant'));
 	
+	ovOutSacSorti = new OverlayMeuf("out_sac_sorti",0.01,0.07,0.4,0.28,false,"sac_devant", function(){$(this).dequeue();}, "overlay_meuf_out_sac_devant");
+	
 	sacOuvert = new Etat("sac_ouvert", 23, new Array(
-		new OverlayMeuf("out_sac_sorti",0.08,0.12,0.4,0.28,false,"sac_devant", function(){$(this).dequeue();}, "meuf"),
+		ovOutZoneCocotte,
+	
+		ovOutSacDevant,
 		
-		new OverlayMeuf("in_camera",0.03,0.07,0.115,0.13,true,"camera_sortie", function(){$('#camera_meuf').animate({'top':'-='+0.07*hImageMeuf}, 'fast', 'swing'); $(this).dequeue();}, "overlay_meuf_out_sac_sorti"),
+		ovOutSacSorti,
 		
-		new OverlayMeuf("in_portefeuille",0.17,0.07,0.085,0.13,true,"portefeuille_sorti", function(){$('#portefeuille_meuf').animate({'top':'-='+0.07*hImageMeuf}, 'fast', 'swing'); $(this).dequeue();}, "overlay_meuf_out_sac_sorti")
+		new OverlayMeuf("in_camera",0.065,0.07,0.105,0.13,true,"camera_sortie", function(){$('#camera_meuf').animate({'top':'-='+0.07*hImageMeuf}, 'fast', 'swing'); $(this).dequeue();}, "overlay_meuf_out_sac_sorti"),
+		
+		new OverlayMeuf("in_portefeuille",0.20,0.07,0.09,0.13,true,"portefeuille_sorti", function(){$('#portefeuille_meuf').animate({'top':'-='+0.07*hImageMeuf}, 'fast', 'swing'); $(this).dequeue();}, "overlay_meuf_out_sac_sorti")
 		),
 		new Array("devant_sac", 'lien_preventes_sac_devant', "camera_meuf", "portefeuille_meuf"));
 	
 	cameraSortie = new Etat("camera_sortie", 23, new Array(
-		new OverlayMeuf("out_camera", 0.1039, 0.17, 0.1273, 0.18, false, "sac_ouvert", function(){$('#camera_meuf').animate({'top':'+='+0.07*hImageMeuf}, 'fast', 'swing'); $(this).dequeue();}, "meuf")
+		ovOutZoneCocotte,
+	
+		ovOutSacDevant,
+		
+		ovOutSacSorti,
+		
+		new OverlayMeuf("out_camera", 0.0439, 0.05, 0.1373, 0.18, false, "sac_ouvert", function(){$('#camera_meuf').animate({'top':'+='+0.07*hImageMeuf}, 'fast', 'swing'); $(this).dequeue();}, "overlay_meuf_out_sac_sorti")
 	), new Array("devant_sac", 'lien_preventes_sac_devant', "camera_meuf", "portefeuille_meuf"));
 	
 	portefeuilleSorti = new Etat("portefeuille_sorti", 23, new Array(
-		new OverlayMeuf("out_portefeuille", 0.2338, 0.17, 0.1169, 0.1567, false, "sac_ouvert", function(){$('#portefeuille_meuf').animate({'top':'+='+0.07*hImageMeuf}, 'fast', 'swing'); $(this).dequeue();}, "meuf")
+		
+		ovOutZoneCocotte,
+	
+		ovOutSacDevant,
+		
+		ovOutSacSorti,
+	
+		new OverlayMeuf("out_portefeuille", 0.1888, 0.05, 0.1269, 0.1567, false, "sac_ouvert", function(){$('#portefeuille_meuf').animate({'top':'+='+0.07*hImageMeuf}, 'fast', 'swing'); $(this).dequeue();}, "overlay_meuf_out_sac_sorti")
 	), new Array("devant_sac", 'lien_preventes_sac_devant', "camera_meuf", "portefeuille_meuf"));
+	
+	$('#overlay_meuf_out_portefeuille').css({'opacity':1, 'background':'green'});
+	$('#overlay_meuf_out_camera').css({'opacity':1, 'background':'green'});
 	
 	//Enregistrement des états dans le manager
 	manMeuf.add(sage);
