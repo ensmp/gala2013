@@ -9,21 +9,3 @@
 <p>Les heureux élus seront tirés au sort. Chaque semaine, sur cette page aura lieu un tirage au sort. L'heure et le jour seront communiqués sur la page facebook et sur le site. A ce moment là et si tu as déjà acheté ta place (va voir le sac sinon…), tu pourras t'inscrire au bas de cette page en inscrivant ton <strong>nom</strong>, ton <strong>prénom</strong> et l’<strong>adresse mail</strong> utilisée lors de l’achat de ta place. Le tirage restera ouvert deux heures à la fin desquelles le résultat tombera ! Et si tu n'es pas tiré, reviens jouer la semaine suivante !</p>
 
 <p>Prochaine date : *****di **/** à 20h : tiens-toi prêt !</p>
-
-<?php
-$date1 = new DateTime("2013-03-03 16:40:00");
-$now = new DateTime("now");//, new DateTimeZone('Europe/Paris'));
-$date2 = new DateTime("2013-03-03 15:59:00");
-
-if ($date1 < $now) {
-	if ($date1 < $now) {
-	}
-	else {
-		echo '<p>Trop tard pour participer !</p>';
-	}
-}
-else {
-	echo '<p class = "erreur">Encore trop tôt pour participer !</p>';
-}
-
-?>
