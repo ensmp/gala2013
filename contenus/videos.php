@@ -1,4 +1,4 @@
-<h1>Trailer</h1>
+﻿<h1>Trailer</h1>
 <h2><em>Coming soon</em></h2>
 </br>
 
@@ -6,8 +6,8 @@
 <p><strong>WEKEED</strong><br/> 
 Ou l'union irrésistible d'un garçon et d'une fille qui font de la musique comme d'autres font l'amour. Forts du succès de leur premier single "Wild Child" (plus d'un million de vues sur YouTube) et de remixes réalisés pour Electric Guest, Niki and The Dove ou encore Crystal Fighters salués par la critique, WEKEED distille un son chaud et personnel au groove polisson.</p>
 <ul>
-	<li><a href="soundcloud.com/wekeed">Soundcloud</a></li>
-	<li><a href="facebook.com/Wekeed">Facebook</a></li>
+	<li><a href="http://soundcloud.com/wekeed">Soundcloud</a></li>
+	<li><a href="https://facebook.com/Wekeed">Facebook</a></li>
 	<li><a href="http://www.youtube.com/watch?v=cNvjKkXFBvU">Youtube</a></li>
 </ul>
 <br/>

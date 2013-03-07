@@ -3,26 +3,37 @@
 //Variable désignant le nom du contenu actuellement à l'écran
 var content_name = '';
 
-//Variable activée lorsqu'on est en train d'afficher un contenu
-var content_going_out = false;
-
 //Ajout des listeners qui vont bien au fichier HTML
-$("#croix_contenu").click(function(){hideContent();});
+$("#croix_contenu").click(function(){hideContent(); return false;});
 $(window).click(function(e){
 	if( e.which == 1 ){
 		hideAll();
 	} 
 });
 $("#fond_splayer").click(function(){return false;});
-$("#content").click(function(){hideIpod(); return false;});
+$("#content").click(function(){hideIpod(); return false; });
 
+//Les liens des icônes
+$('#lien_facebook').click(function(){ window.open("http://www.facebook.com/events/111682155685603/"); return false; });
+
+//La barre d'espace pour play/pauser le iPod
+$('*').keypress(function(event){ 
+	if(event.which == 32){
+		if(!isIpodShown() && !pIsPlaying())
+			showIpod();
+		pPlaypause();
+		return false;
+	}
+});
+
+//On affiche les explications sur la page d'accueil
 showContent('explications.php');
 
 function showContent(page){
-
+	hideIpod();
+	
 	if(isThatContentShown(page)){
 		hideContent();
-		return;
 	}else{
 	
 		//Mise à jour de la variable content_name
@@ -65,6 +76,8 @@ function showContent(page){
 				
 				//TODO : Désaffichage du sablier
 				
+				//Activation des liens du bloc de contenu
+				$("a").click(function(){ window.open($(this).attr('href')); return false; });
 				
 				$(this).dequeue();
 			
@@ -127,7 +140,8 @@ function showIpod(){
 }
 
 function hideIpod(){
-	$('#fond_splayer').animate({'bottom':'0px','opacity':0}, 'slow', 'swing').queue(function(){$(this).css('display','none'); $(this).dequeue();});
+	if(isIpodShown())
+		$('#fond_splayer').animate({'bottom':'0px','opacity':0}, 'slow', 'swing').queue(function(){$(this).css('display','none'); $(this).dequeue();});
 };
 
 //Positionnement des éléments via jQuery (voir ça comme du css "dynamique") --> Size independance des éléments positionnés de façon absolue
@@ -149,7 +163,7 @@ function dynaCSS(){
 		$('#fond_splayer').css({'bottom':($(window).height() - 560)/2});
 	
 	//Le lien de la tour eiffel
-	$('#lien_teiffel').css({'width':0.0425*$(window).width(),'height':0.0645*$(window).height(),'left':0.4831*$(window).width(), 'top':0.5778*$(window).height()});
+	$('#lien_teiffel').css({'width':0.12*$(window).width(),'height':0.15*$(window).height(),'left':0.4431*$(window).width(), 'top':0.5678*$(window).height()});
 	
 	//Les blocs de contenu	
 	var cv = contenWidth();

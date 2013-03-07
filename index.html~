@@ -12,14 +12,27 @@
   </head>
  
   <body>
+		
+		<!-- Google Analytics -->
+		  <script type="text/javascript">
+		  var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-37635054-2']);
+		  _gaq.push(['_trackPageview']);
+
+		  (function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		  })();
+		</script>
  	
  		<!-- Mettre les liens ici aussi pour pouvoir faire une interface classique pour mobile -->
  		
- 		<header>
- 			<!--<h1>MineNight in Paris</h1>-->
-			<img src = "./design/pc/images/titre.png">
- 			<!--<h2>Le gala des Mines de Paris</h2>-->
+ 		<!-- Le header -->
+ 		<header id="the_header">
+			<img src = "./design/pc/images/titre.png" alt="MineNight in Paris - Le Gala des Mines de Paris" >
  		</header>
+ 		
 		<!-- Les spots lumineux -->
 		<img src="./design/pc/images/light-left.png" style="position:fixed;top:0;left:0">
 		<img src="./design/pc/images/light-right.png" style="position:fixed;top:0;right:0">
@@ -73,13 +86,17 @@
     	
     	<div id="html_content">
     		<h1>MineNight in Paris</h1>
-    		<p id="bienvenue"> Bienvenue sur le site du gala des Mines de Paris !
+    		<p id="bienvenue"> Bienvenue dans le cul du plus gros geek de tous les temps !
     		</p>	
     	</div>
     	
-    
-    	
     </section>
+    
+    <!-- Affichage du lien FaceBook et du lien pour les préventes -->
+    
+    <nav  id="lien_facebook">
+    	<img alt="Facebook" src="./design/pc/images/facebook_big.png"/>
+    </nav>
     
     <!-- Affichage du lecteur (parallèlement avec le CSS) -->
 
@@ -107,16 +124,54 @@
 		</div>
 
 		<!-- Le cerveau du lecteur -->
-		<audio class="song_playlist" id="song_daybreak">
-			<source src="./contenus/player_songs/daybreak.mp3"></source>
+		<audio class="song_playlist" id="song_cytise">
+			<source src="./contenus/player_songs/cytise.mp3"></source>
+			<source src="./contenus/player_songs/cytise.ogg"></source>
 		</audio>
-		<audio class="song_playlist" id="song_fascination">
-			<source src="./contenus/player_songs/fascination.mp3"></source>
+		<audio class="song_playlist" id="song_disque_oh">
+			<source src="./contenus/player_songs/disque_oh.mp3"></source>
+			<source src="./contenus/player_songs/disque_oh.ogg"></source>
 		</audio>
-		<audio class="song_playlist" id="song_sternenkinder">
-			<source src="./contenus/player_songs/sternenkinder.mp3"></source>
+		<audio class="song_playlist" id="song_do_it_again">
+			<source src="./contenus/player_songs/do_it_again.mp3"></source>
+			<source src="./contenus/player_songs/do_it_again.ogg"></source>
 		</audio>
-
+		<audio class="song_playlist" id="song_essential">
+			<source src="./contenus/player_songs/essential.mp3"></source>
+			<source src="./contenus/player_songs/essential.ogg"></source>
+		</audio>
+		<audio class="song_playlist" id="song_falcon_punch">
+			<source src="./contenus/player_songs/falcon_punch.mp3"></source>
+			<source src="./contenus/player_songs/falcon_punch.ogg"></source>
+		</audio>
+		<audio class="song_playlist" id="song_mambo_jet">
+			<source src="./contenus/player_songs/mambo_jet.mp3"></source>
+			<source src="./contenus/player_songs/mambo_jet.ogg"></source>
+		</audio>
+		<audio class="song_playlist" id="song_slow_down">
+			<source src="./contenus/player_songs/slow_down.mp3"></source>
+			<source src="./contenus/player_songs/slow_down.ogg"></source>
+		</audio>
+		<audio class="song_playlist" id="song_take_care_of_you">
+			<source src="./contenus/player_songs/take_care_of_you.mp3"></source>
+			<source src="./contenus/player_songs/take_care_of_you.ogg"></source>
+		</audio>
+		<audio class="song_playlist" id="song_tearing">
+			<source src="./contenus/player_songs/tearing.mp3"></source>
+			<source src="./contenus/player_songs/tearing.ogg"></source>
+		</audio>
+		<audio class="song_playlist" id="song_teion">
+			<source src="./contenus/player_songs/teion.mp3"></source>
+			<source src="./contenus/player_songs/teion.ogg"></source>
+		</audio>
+		<audio class="song_playlist" id="song_the_bait">
+			<source src="./contenus/player_songs/the_bait.mp3"></source>
+			<source src="./contenus/player_songs/the_bait.ogg"></source>
+		</audio>
+		<audio class="song_playlist" id="song_wild_child">
+			<source src="./contenus/player_songs/wild_child.mp3"></source>
+			<source src="./contenus/player_songs/wild_child.ogg"></source>
+		</audio>
 		<script>
 	
 			document.querySelector("#next_splayer").addEventListener('click', pNext, false);
@@ -133,11 +188,28 @@
 	
 	
 			tSongs = new Array(
-				{id:'daybreak', titre:'Daybreak', artist:'Overwerk', album:'After Hours'},
-				{id:'fascination', titre:'Fascination', artist:'Alphabeat', album:'Pub Coca'},
-				{id:'sternenkinder', titre:'Sternenkinder', artist:'Klangkarussell', album:'Sonnentanz'}		
+				{id:'cytise', titre:'Cytise', artist:'BeatauCue', album:'BeatauCue'},
+				{id:'disque_oh', titre:'Disque Oh', artist:'BeatauCue', album:'BeatauCue'},
+				{id:'do_it_again', titre:'Do It Again', artist:'Cherokee', album:'Cherokee'}		,
+				{id:'essential', titre:'Essential', artist:'WEKEED', album:'WEKEED'}		,
+				{id:'falcon_punch', titre:'Falcon Punch', artist:'BeatauCue', album:'BeatauCue'},
+				{id:'mambo_jet', titre:'Mambo Jet', artist:'Cherokee', album:'Single'},
+				{id:'slow_down', titre:'Slow Down', artist:'BeatauCue', album:'BeatauCue'},
+				{id:'take_care_of_you', titre:'Take Care', artist:'Cherokee', album:'of you'}		,
+				{id:'tearing', titre:'Tearing', artist:'BeatauCue', album:'BeatauCue'}		,
+				{id:'teion', titre:'Teion', artist:'BeatauCue', album:'Kitsuné Parisien III'}		,
+				{id:'the_bait', titre:'The Bait', artist:'WEKEED & Electric Guest', album:'Remix'}		,
+				{id:'wild_child', titre:'Wild Child', artist:'WEKEED', album:'WEKEED'}		
 			);
-	
+			
+			//On mélange la playlist
+			/*for(var i = tSongs.length; i>=0; i--){
+				var j = Math.floor(Math.random() * (i + 1));
+				var tmp = tSongs[i];
+				tSongs[i] = tSongs[j];
+				tSongs[j] = tmp;
+			}*/
+			
 			var currentSong = tSongs[0];
 	
 			function setCurrentSong(i){
@@ -148,7 +220,13 @@
 			}
 	
 			setCurrentSong(0);
-	
+			
+			function pIsPlaying(){
+				var player = document.querySelector('#song_'+currentSong.id);
+				
+				return !player.paused;
+			}
+			
 			function pPlaypause(){
 				var player = document.querySelector('#song_'+currentSong.id);
 		
@@ -247,33 +325,7 @@
 					player.play();
 				
 				player.currentTime = (duration * percent) / 100;
-			}}, false);
-	
-			function getMousePosition(event) {
-				if (event.pageX) {
-				    return {
-				        x: event.pageX,
-				        y: event.pageY
-				    };
-				} else {
-				    return { 
-				        x: event.clientX + document.body.scrollLeft + document.documentElement.scrollLeft, 
-				        y: event.clientY + document.body.scrollTop  + document.documentElement.scrollTop
-				    };
-				}
-			}   
-	
-			function getPosition(element){
-				var top = 0, left = 0;
-				 
-				while (element) {
-				    left   += element.offsetLeft;
-				    top    += element.offsetTop;
-				    element = element.offsetParent;
-				}
-				 
-				return { x: left, y: top };
-			}
+			}});
 			
 			function pProgress(){
 				var player = document.querySelector('#song_'+currentSong.id);
@@ -289,6 +341,34 @@
 				}
 				
 			}
+			
+			 /* Fonctions Javascript utiles pour la détection de si on est ou pas dans un bloc */
+			 function getMousePosition(event) {
+				if (event.pageX) {
+						return {
+							  x: event.pageX,
+							  y: event.pageY
+						};
+				} else {
+						return { 
+							  x: event.clientX + document.body.scrollLeft + document.documentElement.scrollLeft, 
+							  y: event.clientY + document.body.scrollTop  + document.documentElement.scrollTop
+						};
+				}
+			}   
+
+			function getPosition(element){
+				var top = 0, left = 0;
+				 
+				while (element) {
+						left   += element.offsetLeft;
+						top    += element.offsetTop;
+						element = element.offsetParent;
+				}
+				 
+				return { x: left, y: top };
+			}
+
 
 	
 		</script>

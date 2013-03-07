@@ -4,9 +4,9 @@
 
 <p>Ca, c’est la tyrolienne : du jamais vu dans une salle en intérieur, la direction du Bataclan emballée par l’idée qui a accepté qu’un professionnel vienne mener des travaux pour une sécurité irréprochable… et ça donne un moment de folie, dans les airs, au-dessus de tous.<p>
 
-<p>« Où je signe ? »</p>
+<p><strong>Je veux le faire !</strong></p>
 
-<p>Une fois que tu as acheté ta place, tu peux participer au grand tirage au sort pour gagner ton ticket en guest star sur la tyrolienne. A un jour et une heure précise qui seront communiqués sur le site et la page Facebook, viens sur cette page et rentre ton <strong>nom</strong>, ton <strong>prénom</strong> et l’<strong>adresse mail</strong> utilisée lors de l’achat de ta place. Tu auras deux heures pour t'inscrire et tu seras peut-être parmi les deux chanceux tirés au sort le soir-même, et tu pourras t’élancer au-dessus de la foule en délire le soir du 19 avril ! Et si tu n’y es pas, il te suffira de te réinscrire au prochain tirage, il n’y a pas de limite de participation.</p>
+<p>Les heureux élus seront tirés au sort. Chaque semaine, sur cette page aura lieu un tirage au sort. L'heure et le jour seront communiqués sur la page facebook et sur le site. A ce moment là et si tu as déjà acheté ta place (va voir le sac sinon…), tu pourras t'inscrire au bas de cette page en inscrivant ton <strong>nom</strong>, ton <strong>prénom</strong> et l’<strong>adresse mail</strong> utilisée lors de l’achat de ta place. Le tirage restera ouvert deux heures à la fin desquelles le résultat tombera ! Et si tu n'es pas tiré, reviens jouer la semaine suivante !</p>
 
 <p>Prochaine date : *****di **/** à 20h : tiens-toi prêt !</p>
 
@@ -19,7 +19,7 @@ if ($date1 < $now) {
 	if ($date1 < $now) {
 	}
 	else {
-		echo '<p class = "erreur">Trop tard pour participer !</p>';
+		echo '<p>Trop tard pour participer !</p>';
 	}
 }
 else {

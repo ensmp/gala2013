@@ -112,10 +112,15 @@ $(function(){
  	$('<div id="lien_cravate"></div>').appendTo($('#mec')).css({'display':'block', 'position':'absolute','width':0.0629*wImageMec,'height':0.2517*hImageMec,'left':0.5769*wImageMec, 'top':0.1933*hImageMec}).click(function(){return showContent('partenaires.php'); return false;});
  	
  	//Lien de la tour Eiffel
- 	$('<div id="lien_teiffel"></div>').appendTo($('body')).css({'display':'block', 'position':'absolute','width':0.0625*$(window).width(),'height':0.0645*$(window).height(),'left':0.4531*$(window).width(), 'top':0.5978*$(window).height()}).click(function(){return showContent('tyrolienne.php'); return false;});
+
+ 	/*$('<div id="lien_teiffel"></div>').appendTo($('body')).css({'display':'block', 'position':'absolute','width':0.12*$(window).width(),'height':0.15*$(window).height(),'left':0.4431*$(window).width(), 'top':0.5678*$(window).height()}).click(function(){return showContent('tyrolienne.php'); return false;});*/
+	$('#lieu').click(function(){return showContent('bataclan.php'); return false;});
+
  	
  	//Lien du mouchoir
  	$('<div id="lien_mouchoir"></div>').appendTo($('#overlay_mec_out_mouchoir')).css({'display':'block', 'position':'absolute','width':0.05*wImageMec,'height':0.04*hImageMec,'left':0.02*wImageMec, 'top':0.008*hImageMec}).click(function(){return showContent('animationsSoiree.php'); return false;});
+ 	
+ 	$('#the_header').click(function(){return showContent('explications.php'); return false;});
  	
  	//Et c'est parti
  	//Set de l'état courant
@@ -176,7 +181,7 @@ $(function(){
 	$('#portefeuille_meuf').css({'left':0.239*wImageMeuf, 'top':0.2667*hImageMeuf, 'z-index':2, 'display':'none'});
 	
 	//Lien de la cocotte, de la caméra et du portefeuille
-	$('<div  id="lien_preventes"></div>').appendTo($('#overlay_meuf_out_zone_cocotte')).css({'display':'block', 'position':'absolute','width':0.13*wImageMeuf,'height':0.065*hImageMeuf,'top':0.39*wImageMeuf, 'left':0.55*hImageMeuf}).click(function(){return showContent('preventes.php');});
+	$('<div  id="lien_preventes"></div>').appendTo($('#overlay_meuf_out_zone_cocotte')).css({'display':'block', 'position':'absolute','width':0.13*wImageMeuf,'height':0.065*hImageMeuf,'top':0.39*wImageMeuf, 'left':0.55*hImageMeuf}).click(function(){return showContent('tyrolienne.php');});
 	
 	$('#lien_preventes_sac_devant').css({'display':'none', 'position':'absolute','left':0.8078*wImageMeuf,'top':0.2583*hImageMeuf,'width':0.1403*wImageMeuf, 'height':0.0717*hImageMeuf}).click(function(){return showContent('preventes.php');});
 	
@@ -219,12 +224,47 @@ $(function(){
 			else
 				$("#overlay_"+this.target+'_'+this.nom).mouseleave(function(){manMec.jumpTo(jte).queue('fx', endFunction);});
 				
+				$("#overlay_"+this.target+'_'+this.nom).css('z-index', 100);					
+  		
+  		/*if(this.mouseover){
+				$("#overlay_"+this.target+'_'+this.nom).mouseenter(function(){manMec.jumpTo(jte).queue('fx', endFunction);});
 				$("#overlay_"+this.target+'_'+this.nom).css('z-index', 100);
+				}
+			else{
+					var thisOverlay = this;
+					
+					$("#overlay_"+thisOverlay.target+'_'+thisOverlay.nom).mouseleave(function(){manMec.jumpTo(thisOverlay.jte).queue('fx', thisOverlay.endFunction);}).css('z-index', 100);
+					
+					//Bind, lancement et unbind de l'évènement sur lequel la vérification va se faire
+					$(window).mousemove(function(e){
+											
+						if(!thisOverlay.isMouseIn(e)){
+							manMec.jumpTo(thisOverlay.jte).queue('fx', thisOverlay.endFunction);
+						}
+						
+						$(window).unbind('mousemove');
+						return false;
+					});
+					
+							
+  				
+				}*/
+				
   	}
   	
   	this.disable = function(){
   		$("#overlay_"+this.target+'_'+this.nom).unbind();
   		$("#overlay_"+this.target+'_'+this.nom).css('z-index', -1);
+  	}
+  	
+  	this.isMouseIn = function(event){
+  		var topleft = getPosition(document.querySelector("#overlay_"+this.target+'_'+this.nom));
+  		var widthheight = {x : $("#overlay_"+this.target+'_'+this.nom).width(), y : $("#overlay_"+this.target+'_'+this.nom).height()};
+  		
+  		var posmouse = getMousePosition(event);
+  		
+  		return topleft.x < posmouse.x && posmouse.x < topleft.x + widthheight.x &&
+  						topleft.y < posmouse.y && posmouse.y < topleft.y + widthheight.y;
   	}
   	
   }
@@ -270,7 +310,8 @@ $(function(){
   function ManagerMec(etats){
   	this.mEtats = etats;
   	
-  	this.etatCourant = new Etat("default", 0, new Array(), new Array());
+  	this.etatCourant = new Etat('default', '1', new Array(), new Array());
+  	this.mEtats = new Array(this.etatCourant);
   	
   	this.jumpTo = function(nom_etat){
   	
@@ -282,18 +323,21 @@ $(function(){
   		}
   		
   		if(c!=-1){
-  			//On garde en mémoire le numéro de l'image courante (i.e. correspondant à l'état courant)
+  			//On garde en mémoire le numéro de l'image courante (i.e. correspondant à l'état courant) etde l'état courant
   			var cinb = manMec.etatCourant.img;
+  			var csnb = manMec.numEtatCourant();
   		
   			//Suppression des overlays et interactions relatifs à cet état
   			this.etatCourant.disableOverlays();
-  			tImagesMec[0].queue('fx', function(){manMec.etatCourant.disableInteractions();$(this).dequeue();});
+  			tImagesMec[0].queue('fx', function(){manMec.mEtats[csnb].disableInteractions();$(this).dequeue();});
   			manMec.etatCourant = manMec.mEtats[c];
   			manMec.mEtats[c].enableOverlays();
   			//Création du parcours d'animation (TODO : utiliser des arbres pour calculer ledit chemin)
-  			
+
   			return this.recAnim(
-  			cinb, this.mEtats[c].img, this.mEtats[c].img).queue('fx', function(){manMec.etatCourant.enableInteractions();$(this).dequeue();});
+  			cinb, this.mEtats[c].img, this.mEtats[c].img).queue('fx', function(){
+  				manMec.mEtats[c].enableInteractions();
+  				$(this).dequeue();});
   		}
   		
   	}
@@ -304,7 +348,15 @@ $(function(){
 		  	else
 		  		return this.recAnim(d,f,i - (f-d)/Math.abs(f-d) ).queue('fx',function(){$(this).attr('src', tImagesMec[i].attr('src'));$(this).dequeue();}).delay(66, 'fx');
 		  }
-		  
+		
+		this.numEtatCourant = function(){
+			for(var i = 0; i < this.mEtats.length; i++){
+				if(this.mEtats[i].nom == this.etatCourant.nom)
+					return i;
+			}
+			return -1;
+		}
+		
   	this.add = function(etat){
   		this.mEtats.push(etat);
   	}
@@ -339,12 +391,22 @@ $(function(){
 			else
 				$("#overlay_"+this.target+'_'+this.nom).mouseleave(function(){manMeuf.jumpTo(jte).queue('fx', endFunction);});
 				
-				$("#overlay_"+this.target+'_'+this.nom).css('z-index', 100);
+				$("#overlay_"+this.target+'_'+this.nom).css('z-index', 100);							
   	}
   	
   	this.disable = function(){
   		$("#overlay_"+this.target+'_'+this.nom).unbind();
   		$("#overlay_"+this.target+'_'+this.nom).css('z-index', -1);
+  	}
+  	
+  	this.isMouseIn = function(event){
+  		var topleft = getPosition(document.querySelector("#overlay_"+this.target+'_'+this.nom));
+  		var widthheight = {x : $("#overlay_"+this.target+'_'+this.nom).width(), y : $("#overlay_"+this.target+'_'+this.nom).height()};
+  		
+  		var posmouse = getMousePosition(event);
+  		
+  		return topleft.x < posmouse.x && posemouse.x < topleft.x + widthheight.x &&
+  						topleft.y < posmouse.y && posemouse.y < topleft.y + widthheight.y;
   	}
   	
   }
@@ -398,6 +460,6 @@ $(function(){
   
   
  }); //Fin du bloc jQuery
- 
- 
+
+
   
