@@ -100,7 +100,7 @@
     <!-- Affichage du lien FaceBook et du lien pour les préventes -->
     
     <nav  id="lien_facebook">
-    	<img alt="Facebook" src="./design/pc/images/facebook_big.png"/>
+    	<a href="http://www.facebook.com/events/111682155685603/"><img alt="Facebook" src="./design/pc/images/facebook_big.png"/></a>
     </nav>
     
     <!-- Affichage du lecteur (parallèlement avec le CSS) -->
@@ -142,8 +142,8 @@
 			<source src="./contenus/player_songs/do_it_again.ogg" type="audio/ogg" preload="metadata"></source>
 		</audio>
 		<audio class="song_playlist" id="song_essential">
-			<source src="./contenus/player_songs/essential.mp3" type="audio/mpeg" preload="metadata"></source>
 			<source src="./contenus/player_songs/essential.ogg" type="audio/ogg" preload="metadata"></source>
+			<source src="./contenus/player_songs/essential.mp3" type="audio/mpeg" preload="metadata"></source>
 		</audio>
 		<audio class="song_playlist" id="song_falcon_punch">
 			<source src="./contenus/player_songs/falcon_punch.mp3" type="audio/mpeg" preload="metadata"></source>
@@ -208,12 +208,12 @@
 			);
 			
 			//On mélange la playlist
-			/*for(var i = tSongs.length; i>=0; i--){
+			for(var i = tSongs.length - 1; i>=0; i--){
 				var j = Math.floor(Math.random() * (i + 1));
 				var tmp = tSongs[i];
 				tSongs[i] = tSongs[j];
 				tSongs[j] = tmp;
-			}*/
+			}
 			
 			var currentSong = tSongs[0];
 	
@@ -323,10 +323,8 @@
 				
 				var wrapperWidth = document.querySelector('#splayer_progressbar').offsetWidth;
 				 
-				var percent = Math.ceil((x / wrapperWidth) * 100);    
+				var percent = (x / wrapperWidth) * 100;    
 				var duration = player.duration;
-				
-				alert(percent+'%');
 				
 				if (player.paused)
 					player.play();

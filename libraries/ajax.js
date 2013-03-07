@@ -16,6 +16,11 @@ $("#content").click(function(){hideIpod(); return false; });
 //Les liens des icônes
 $('#lien_facebook').click(function(){ window.open("http://www.facebook.com/events/111682155685603/"); return false; });
 
+//La sortie fatale
+$('body').mouseleave(function(){manMec.jumpTo("costard_fermé");manMeuf.jumpTo("sage");});
+$('#imeuf').mouseleave(function(){manMeuf.jumpTo("sage");});
+$('#imec').mouseleave(function(){manMec.jumpTo("costard_fermé");});
+
 //La barre d'espace pour play/pauser le iPod
 $('*').keypress(function(event){ 
 	if(event.which == 32){
