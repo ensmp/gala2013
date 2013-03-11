@@ -1,5 +1,5 @@
 <h1>Infos pratiques</h1>
-<p>Vente en ligne à partir du 7 Mars</p>
+<p><a href="http://minenightinparis.buypacker.com/">J'achète ma place !</a></p>
 
 <ul>	<li style="margin:10px 0"><strong>Accès</strong></li>
 	<ul style="list-style:none;">		<li><img align="middle" src = "./design/pc/images/metro.png" style="margin-right:10px"><img align="middle" src = "./design/pc/images/5.png"><img align="middle" src = "./design/pc/images/9.png"> Oberkampf</li>
